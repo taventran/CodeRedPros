@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+
+        <style>
+ 
+            /* Styling the Body element i.e. Color,
+            Font, Alignment */
+            body {
+                background-color: #656565;
+                font-family: Verdana;
+                text-align: center;
+            }
+     
+            /* Styling the Form (Color, Padding, Shadow) */
+            form {
+                background-color: #fff;
+                max-width: 500px;
+                margin: 50px auto;
+                padding: 30px 20px;
+                box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+            }
+     
+            /* Styling form-control Class */
+            .form-control {
+                text-align: left;
+                margin-bottom: 30px;
+            }
+     
+            /* Styling form-control Label */
+            .form-control label {
+                display: block;
+                margin-bottom: 10px;
+            }
+     
+            /* Styling form-control input,
+            select, textarea */
+            .form-control input,
+            .form-control select,
+            .form-control textarea {
+                border: 1px solid #777;
+                border-radius: 2px;
+                font-family: inherit;
+                padding: 10px;
+                display: block;
+                width: 95%;
+            }
+     
+            /* Styling form-control Radio
+            button and Checkbox */
+            .form-control input[type="radio"],
+            .form-control input[type="checkbox"] {
+                display: inline-block;
+                width: auto;
+            }
+     
+            /* Styling Button */
+            button {
+                background-color: #05c46b;
+                border: 1px solid #777;
+                border-radius: 2px;
+                font-family: inherit;
+                font-size: 21px;
+                display: block;
+                width: 100%;
+                margin-top: 50px;
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+    <body>
+       
+      <h1>Computer Selection</h1>
+  
+    <!-- Create Form -->
+    <form id="form">
+        <div class="form-control">
+            <label for="role" id="label-role">
+                What will you use the computer for
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="role" id="role">
+                <option value="select"> Select an option</option>
+                <option value="media prodc ution">School/Work</option>
+                <option value="media production">Media Production</option>
+                <option value="gaming">
+                    Gaming
+                </option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+  
+  
+        <div class="form-control">
+            <label>What will you use the computer for
+                <small>(Check all that apply)</small>
+            </label>
+            <!-- Input Type Checkbox -->
+            <label for="inp-1">
+                <input type="checkbox"
+                       name="inp">School/Work</input></label>
+            <label for="inp-2">
+                <input type="checkbox"
+                       name="inp">Media Production</input></label>
+            <label for="inp-3">
+                <input type="checkbox"
+                       name="inp">Gaming</input></label>
+            
+        </div>
+
+        <div class="form-control">
+            <label>Question 2
+                <small>(Check all that apply)</small>
+            </label>
+            <!-- Input Type Checkbox -->
+            <label for="inp-1">
+                <input type="checkbox"
+                       name="inp">Option 1</input></label>
+            <label for="inp-2">
+                <input type="checkbox"
+                       name="inp">Option 2</input></label>
+            <label for="inp-3">
+                <input type="checkbox"
+                       name="inp">Option 3</input></label>
+            
+        </div>
+
+        <div class="form-control">
+            <label>Question 3
+                <small>(Check all that apply)</small>
+            </label>
+            <!-- Input Type Checkbox -->
+            <label for="inp-1">
+                <input type="checkbox"
+                       name="inp">Option 1</input></label>
+            <label for="inp-2">
+                <input type="checkbox"
+                       name="inp">Option 2</input></label>
+            <label for="inp-3">
+                <input type="checkbox"
+                       name="inp">Option 3</input></label>
+            
+        </div>
+
+        <div class="form-control">
+            <label>Question 4
+                <small>(Check all that apply)</small>
+            </label>
+            <!-- Input Type Checkbox -->
+            <label for="inp-1">
+                <input type="checkbox"
+                       name="inp">Option 1</input></label>
+            <label for="inp-2">
+                <input type="checkbox"
+                       name="inp">Option 2</input></label>
+            <label for="inp-3">
+                <input type="checkbox"
+                       name="inp">Option 3</input></label>
+            
+        </div>
+
+        <div class="form-control">
+            <label>Question 5
+                <small>(Check all that apply)</small>
+            </label>
+            <!-- Input Type Checkbox -->
+            <label for="inp-1">
+                <input type="checkbox"
+                       name="inp">Option 1</input></label>
+            <label for="inp-2">
+                <input type="checkbox"
+                       name="inp">Option 2</input></label>
+            <label for="inp-3">
+                <input type="checkbox"
+                       name="inp">Option 3</input></label>
+            
+        </div>
+
+  
+        <!-- Multi-line Text Input Control -->
+        <button type="submit" value="submit">
+            Submit
+        </button>
+    </form>
+</body>
+    </body>
+</html>
