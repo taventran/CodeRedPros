@@ -27,7 +27,7 @@ class CPU(models.Model):
 
 class CPUCooler(models.Model):
     price  = models.FloatField(blank=False)
-    allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE)
+    allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name="CPUCooler")
     name = models.TextField(blank=True, max_length=50)
     
     def __str__(self):
