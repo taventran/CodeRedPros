@@ -1,0 +1,41 @@
+from pcpartpicker import API
+import pandas as pd
+
+api = API()
+
+cpu_data = api.retrieve("cpu")
+memory_data = api.retrieve("memory")
+power_supply_data = api.retrieve("power-supply")
+video_card_data = api.retrieve("video-card")
+case_data = api.retrieve("case")
+cpu_cooler_data = api.retrieve("cpu-cooler")
+monitor_data = api.retrieve("monitor")
+internal_hard_drive_data = api.retrieve("internal-hard-drive")
+external_hard_drive_data = api.retrieve("external-hard-drive")
+
+all_data = api.retrieve_all()
+
+df_cpu = pd.DataFrame(cpu_data)
+df_memory = pd.DataFrame(memory_data)
+df_power_supply = pd.DataFrame(power_supply_data)
+df_video_card = pd.DataFrame(video_card_data)
+df_case = pd.DataFrame(case_data)
+df_cpu_cooler = pd.DataFrame(cpu_cooler_data)
+df_monitor = pd.DataFrame(monitor_data)
+df_internal_hard_drive = pd.DataFrame(internal_hard_drive_data)
+df_external_hard_drive = pd.DataFrame(external_hard_drive_data)
+
+print(df_cpu)
+print('')
+print(df_memory)
+print('')
+print(df_power_supply)
+print('')
+print(df_video_card)
+print('')
+print(df_case)
+print('')
+print(df_cpu_cooler)
+print('')
+print(df_monitor)
+print('')
