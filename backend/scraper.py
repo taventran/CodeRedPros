@@ -1,3 +1,9 @@
+"""
+
+To get access to API run - pip install pcpartpicker
+
+"""
+
 from pcpartpicker import API
 import pandas as pd
 
