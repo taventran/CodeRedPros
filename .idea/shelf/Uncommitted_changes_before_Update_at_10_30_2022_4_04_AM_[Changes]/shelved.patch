@@ -1,0 +1,31 @@
+Index: .idea/CODERED.iml
+===================================================================
+diff --git a/.idea/CODERED.iml b/.idea/CODERED.iml
+--- a/.idea/CODERED.iml	
++++ b/.idea/CODERED.iml	
+@@ -4,11 +4,7 @@
+     <content url="file://$MODULE_DIR$">
+       <excludeFolder url="file://$MODULE_DIR$/venv" />
+     </content>
+-    <orderEntry type="jdk" jdkName="Python 3.8 (CODERED)" jdkType="Python SDK" />
++    <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+-  <component name="PyDocumentationSettings">
+-    <option name="format" value="PLAIN" />
+-    <option name="myDocStringFormat" value="Plain" />
+-  </component>
+ </module>
+\ No newline at end of file
+Index: .idea/misc.xml
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.8 (CODERED)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (CodeRedPros)" project-jdk-type="Python SDK" />
+ </project>
+\ No newline at end of file
