@@ -30,15 +30,15 @@ def parse_cpu():
         for row in csv_reader:
             line = row[1].split(",")
             line2 = []
-            print(line)
+            #print(line)
             for i in line:
                 line2.append(i.split("=")[1])
 
             info.append({"name": line2[0][1:-1]+" " +line2[1][1:-1], "cores": int(line2[2]),
              "price": (line2[4][line2[4].find(":")+1:-4]) })
 
-            print(line2)
-        print(info)
+            #print(line2)
+        #print(info)
             
 
 
