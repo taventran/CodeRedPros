@@ -1,6 +1,6 @@
 from pcpartpicker import API
 from csv import reader
-from web import models
+#from web import models
 
 api = API()
 
@@ -277,11 +277,13 @@ def parse_case_data():
             brand = newList[i][0] + " " + newList[i][1]
             price = float(newList[i][-1][newList[i][-1].find(':') + 2:-4])
             form_factor = newList[i][2]
+            color = newList[i][3]
             if price != 0.0:
-                newDict.append({"name": brand, "price": price, "form_factor": form_factor})
+                newDict.append({"name": brand, "price": price, "form_factor": form_factor, "color": color})
 
-    #print(newDict)
     return newDict
+
+
 
 # def add_to_database_case():
 #     info = parse_case_data()

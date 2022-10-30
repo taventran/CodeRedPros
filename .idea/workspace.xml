@@ -7,6 +7,7 @@
     <list default="true" id="8b46e1e2-d75c-4f0b-b575-b3ae4d202673" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/getData.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/getData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/scraper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667134139190</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="data anal">
+      <created>1667135438738</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1667135438738</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +190,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added gpu parse" />
     <MESSAGE value="added parses" />
-    <option name="LAST_COMMIT_MESSAGE" value="added parses" />
+    <MESSAGE value="data anal" />
+    <option name="LAST_COMMIT_MESSAGE" value="data anal" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CodeRedPros$39.coverage" NAME="39 Coverage Results" MODIFIED="1667135329797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />

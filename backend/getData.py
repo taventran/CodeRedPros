@@ -3,8 +3,6 @@ import numpy as np
 import requests
 
 
-
-
 def getWeights(use, budget):
     weights = ()
 
@@ -82,8 +80,56 @@ def getCPUCooler(budgetMax, budgetMin):
     df = df.loc[(df['price'] <= budgetMax) & (df['price'] >= budgetMin)]
     return df[:10]
 
+def getGPU(budgetMax, budgetMin):
+    api_url = "http://127.0.0.1:8000/api/GPU/"
+    response = requests.get(api_url)
+    df = pd.DataFrame(response.json())
+    df = df.loc[(df['price'] <= budgetMax) & (df['price'] >= budgetMin)]
+    df = df.sort_values(["memory", "coreClock"], ascending = False)
+    return df[:10]
+
+def getRAM(budgetMax, budgetMin):
+    api_url = "http://127.0.0.1:8000/api/memory/"
+    response = requests.get(api_url)
+    df = pd.DataFrame(response.json())
+    df = df.loc[(df['price'] <= budgetMax) & (df['price'] >= budgetMin)]
+    df = df.sort_values(["memory", "gigs"], ascending = False)
+    return df[:10]
+
+def getStorage(budgetMax, budgetMin):
+    api_url = "http://127.0.0.1:8000/api/storage/"
+    response = requests.get(api_url)
+    df = pd.DataFrame(response.json())
+    df = df.loc[(df['price'] <= budgetMax) & (df['price'] >= budgetMin)]
+    df = df.sort_values(["capacity"], ascending = False)
+    return df[:10]
+
+def getMobo(budgetMax, budgetMin, size):
+    api_url = "http://127.0.0.1:8000/api/motherboard/"
+    response = requests.get(api_url)
+    df = pd.DataFrame(response.json())
+    df = df.loc[(df['price'] <= budgetMax) & (df['price'] >= budgetMin)]
+    df = df.loc[(df['size'] == size)]
+    return df[:10]
+
+def getCase(budgetMax, budgetMin, size, aesthetic):
+    api_url = "http://127.0.0.1:8000/api/case/"
+    response = requests.get(api_url)
+    df = pd.DataFrame(response.json())
+    df = df.loc[(df['price'] <= budgetMax) & (df['price'] >= budgetMin)]
+    df = df.loc[(df['size'] == size)]
+    return df[:10]
+
+def getPSU(budgetMax, budgetMin):
+    api_url = "http://127.0.0.1:8000/api/powersupply/"
+    response = requests.get(api_url)
+    df = pd.DataFrame(response.json())
+    df = df.loc[(df['price'] <= budgetMax) & (df['price'] >= budgetMin)]
+    return df[:10]
 
 
 
 
-print(getCPU(400, 100))
+
+
+print(getGPU(400, 100))
