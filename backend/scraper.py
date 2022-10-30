@@ -11,44 +11,16 @@ from csv import reader
 api = API()
 
 cpu_data = api.retrieve("cpu")
-
-"""
 memory_data = api.retrieve("memory")
 power_supply_data = api.retrieve("power-supply")
-video_card_data = api.retrieve("video-card")
+gpu_data = api.retrieve("video-card")
 case_data = api.retrieve("case")
 cpu_cooler_data = api.retrieve("cpu-cooler")
 monitor_data = api.retrieve("monitor")
 internal_hard_drive_data = api.retrieve("internal-hard-drive")
-external_hard_drive_data = api.retrieve("external-hard-drive")
-all_data = api.retrieve_all()
-"""
 
-    
-'''
-df_memory = pd.DataFrame(memory_data)
-df_power_supply = pd.DataFrame(power_supply_data)
-df_video_card = pd.DataFrame(video_card_data)
-df_case = pd.DataFrame(case_data)
-df_cpu_cooler = pd.DataFrame(cpu_cooler_data)
-df_monitor = pd.DataFrame(monitor_data)
-df_internal_hard_drive = pd.DataFrame(internal_hard_drive_data)
-df_external_hard_drive = pd.DataFrame(external_hard_drive_data)
-df_cpu.to_csv('c:/code/codered2023/backend/info_csv/cpu.csv')
-df_memory.to_csv('memory.csv')
-df_power_supply.to_csv('power-supply.csv')
-df_video_card.to_csv('video-card.csv')
-df_case.to_csv('case.csv')
-df_cpu_cooler.to_csv('cpu-cooler.csv')
-df_monitor.to_csv('monitor.csv')
-df_internal_hard_drive.to_csv('internal-hard-drive.csv')
-df_external_hard_drive.to_csv('external-hard-drive.csv')
-'''
 
-'''
-df_cpu = pd.DataFrame(cpu_data)
-df_cpu.to_csv('c:/code/codered2023/backend/info_csv/cpu.csv')
-'''
+
 def parse_cpu():
     with open('c:/code/codered2023/backend/info_csv/cpu.csv') as obj:
         csv_reader = reader(obj)
@@ -70,19 +42,31 @@ def parse_cpu():
             
 
 
-'''
-print('')
-print(df_memory)
-print('')
-print(df_power_supply)
-print('')
-print(df_video_card)
-print('')
-print(df_case)
-print('')
-print(df_cpu_cooler)
-print('')
-print(df_monitor)
-print('')
-'''
-parse_cpu()
+def parse_gpu():
+    data = list(gpu_data['video-card'])
+    newList = []
+    for i in range(len(data)):
+        temp = str(data[i])
+        newList.append(temp)
+
+    for i in range(len(newList)):
+        newList[i] = newList[i][newList[i].find('(') + 1:newList[i].rindex(')')]
+        newList[i] = list(newList[i].split(','))
+        for x in range(len(newList[i])):
+            newList[i][x] = newList[i][x][newList[i][x].find('=') + 2:-1]
+        #print(newList[i])
+
+    newDict = []
+    for i in range(len(newList)):
+        if 'on' not in newList[i] and float(newList[i][8][newList[i][8].find(':') + 2:-4]) != 0.0:
+            brand = newList[i][0] + " " + newList[i][1] + " " + newList[i][2]
+            price = float(newList[i][8][newList[i][8].find(':') + 2:-4])
+            clockSpeed = float(newList[i][4][newList[i][4].find('=') + 1:])
+            memory = float(newList[i][3][newList[i][3].find('=') + 1:])
+            newDict.append({"name": brand, "price": price, "clockSpeed": clockSpeed, "memory": memory})
+    return newDict
+
+
+
+#print(gpu_data['video-card']) # price name-(brand + model) core_clock and memory
+parse_gpu()
