@@ -3,7 +3,7 @@
 To get access to API run - pip install pcpartpicker
 
 """
-from django.db import models
+
 from pcpartpicker import API
 import pandas as pd
 from csv import reader
