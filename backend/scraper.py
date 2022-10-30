@@ -1,6 +1,6 @@
 from pcpartpicker import API
 from csv import reader
-#from web import models
+from web import models
 api = API()
 
 cpu_data = api.retrieve("cpu")
@@ -12,7 +12,70 @@ cpu_cooler_data = api.retrieve("cpu-cooler")
 monitor_data = api.retrieve("monitor")
 internal_hard_drive_data = api.retrieve("internal-hard-drive")
 
+def parse_powerSupply():
+    data = list(power_supply_data['power-supply'])
+    newList = []
+    for i in range(len(data)):
+        temp = str(data[i])
+        newList.append(temp)
+        #print(temp)
+    wattage = []
+    for i in range(len(newList)):
+        newList[i] = list(newList[i].split(','))
+        for x in range(len(newList[i])):
+            if (newList[i][x][newList[i][x].find("wattage=")+8].isnumeric()):
+                wattage.append(newList[i][x][newList[i][x].find("wattage=")+8:newList[i][x].find("ge=")+11])
+            newList[i][x] = newList[i][x][newList[i][x].find('=') + 2:-1]
 
+    newDict = []
+
+    for i in range (len(newList)):
+        price = float(newList[i][7][newList[i][7].find(" "):-5])
+        if (price == 0):
+            continue
+        name = newList[i][0] + " " + newList[i][1]
+        line = {'name':name, 'watts':wattage[i], 'effiency':newList[i][3], "price":price}
+        newDict.append(line)
+    return newDict
+
+def add_to_database_powerSupply():
+    info = parse_powerSupply()
+    for i in info:
+        model = models.PowerSupply()
+        model.price = i.get('price')
+        model.watts = i.get('watts')
+        model.effiency = i.get('effiency')
+        model.name = i.get('name')
+        model.save()
+
+add_to_database_powerSupply()
+
+def parse_memory_data():
+    data = list(memory_data['memory'])
+    newList = []
+    for i in range(len(data)):
+        temp = str(data[i])
+        newList.append(temp)
+        #print(temp)
+
+    for i in range(len(newList)):
+        newList[i] = newList[i][newList[i].find('(') + 1:newList[i].rindex(')')]
+        newList[i] = list(newList[i].split(','))
+        for x in range(len(newList[i])):
+            newList[i][x] = newList[i][x][newList[i][x].find('=') + 2:-1]
+        #print(newList[i])
+
+    newDict = []
+    for i in range(len(newList)):
+        if 'on' not in newList[i] and '0.0' != newList[i][-1]:
+            brand = newList[i][0] + " " + newList[i][1]
+            price = float(newList[i][-1][newList[i][-1].find(':') + 2:-4])
+            #speed = newList[i][3][newList[i][3].find('=') + 1:]
+            memory = brand[brand.find('GB') - 3:brand.find('GB')].strip()
+            if price != 0.0 and ("16" == memory or "32" == memory or "8" == memory):
+                newDict.append({"name": brand, "price": price, "memory": int(memory)})
+
+    return newDict
 
 def parse_internal_hard_drive_data():
     data = list(internal_hard_drive_data['internal-hard-drive'])
