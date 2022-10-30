@@ -1,14 +1,41 @@
 from django.db import models
-from numpy import maximum
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import random
+
+def generate_graph():
+    cpu_name = ["AMD 5600X", "AMD 5800X", "Intel Core i7", "AMD 5600", "Intel Core i5", "AMD 5900X"]
+    cpu_price = [158.98, 249.00, 364.99, 139.99, 269.99, 349.99,]
+    cpu_core_clock = [3.7, 3.8, 3.6, 3.5, 3.7, 3.7]
+
+    sns.set_style("dark")
+    data_plot_cpu1 = pd.DataFrame({"Name": cpu_name, "Price": cpu_price})
+    data_plot_cpu2 = pd.DataFrame({"Name": cpu_name, "Core Clock": cpu_core_clock})
+    sns.lineplot(x="Name", y="Price", data=data_plot_cpu1)
+    sns.lineplot(x="Name", y="Core Clock", data=data_plot_cpu2)
+    line = ""
+    for i in range(10):
+        line += str(random.randint(0, 9))
+    
+    line += ".png"
+    plt.savefig(f"images/{line}")
+
+    return f"images/{line}"
 
 
 # Create your models here.
+def upload_to(instance, filename):
+    return f'images/{filename}'
+
 
 class UserData(models.Model):
     use = models.IntegerField(default = 1, blank = False)
     aesthetic = models.BooleanField(default=False)
     priceRange = models.FloatField(default=10, blank=False)
     size = models.IntegerField(default = 1, blank = False)
+    val = generate_graph()
+    image_url = models.ImageField(upload_to=upload_to, blank=True, null=True, default=val)
 
 class OutputComputer(models.Model):
      # Make serializer for this. 

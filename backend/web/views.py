@@ -4,13 +4,14 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from web import serializers
 from web import models
-import scraper
+from rest_framework.parsers import MultiPartParser, FormParser
 
 # Create your views here.
 
 class UserDataViewSet(viewsets.ModelViewSet):
     queryset = models.UserData.objects.all()
     serializer_class = serializers.UserDataSerializer
+    parser_classes = (MultiPartParser, FormParser)
     @action(detail=True, methods=["POST"])
     def makeUserData(self, request, pk=None):
         if 'use' and 'aesthetic' and 'priceRange' and 'size' in request.data:
@@ -20,7 +21,7 @@ class UserDataViewSet(viewsets.ModelViewSet):
             size = request['size']
             serializer = serializers.UserDataSerializer
             Data = models.UserData.objects.create(use=int(use), aesthetic=int(aesthetic), 
-            priceRange=float(priceRange), size=int(size))
+                priceRange=float(priceRange), size=int(size), image_url='images/barplot.png')
             response = {'message': 'New data', 'result':serializer.data}
             return Response(response, status.HTTP_200_OK)
         else:
