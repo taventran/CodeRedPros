@@ -1,6 +1,10 @@
 from rest_framework import serializers
 from web import models
 
+class MotherboardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Motherboard
+        fields = ('name', 'price', 'size')
 
 class CPUSerializer(serializers.ModelSerializer):
     class Meta:

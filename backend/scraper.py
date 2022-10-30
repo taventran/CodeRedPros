@@ -1,6 +1,6 @@
 from pcpartpicker import API
 from csv import reader
-from web import models
+#from web import models
 api = API()
 
 cpu_data = api.retrieve("cpu")

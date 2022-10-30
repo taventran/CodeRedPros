@@ -5,8 +5,12 @@ from rest_framework.decorators import action
 from web import serializers
 from web import models
 
-
 # Create your views here.
+
+class MotherboardViewSet(viewsets.ModelViewSet):
+    queryset = models.Motherboard.objects.all()
+    serializer_class = serializers.MotherboardSerializer
+
 class CPUViewSet(viewsets.ModelViewSet):
     queryset = models.CPU.objects.all()
     serializer_class = serializers.CPUSerializer
