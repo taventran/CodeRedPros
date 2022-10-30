@@ -2,119 +2,59 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Title</title>
-
+        <title>pro PC</title>
+        <link rel="icon" href="pro.png" type="image">
         <link href="homePageStyling.css" rel="stylesheet" >
     </head>
     <body>
        
     <a href="CodeRedPros.html"><img style="width:500px; height:150px; object-fit: none;" id="logo" src="assets/pro.png" alt="#"></a>
   
-    <!-- Create Form -->
-    <form id="form">
-        <div class="form-control">
-            <label for="role" id="label-role">
-                What will you use the computer for
-            </label>
-             
-            <!-- Dropdown options -->
-            <select name="role" id="role">
-                <option value="select"> Select an option</option>
-                <option value="media prodc ution">School/Work</option>
-                <option value="media production">Media Production</option>
-                <option value="gaming">
-                    Gaming
-                </option>
-                <option value="other">Other</option>
-            </select>
-        </div>
-  
-  
-        <div id="first" class="form-control">
-            <label>What will you use the computer for
-                <small>(Check all that apply)</small>
-            </label>
-            <!-- Input Type Checkbox -->
-            <label for="inp-1">
-                <input type="checkbox"
-                       name="inp">School/Work</input></label>
-            <label for="inp-2">
-                <input type="checkbox"
-                       name="inp">Media Production</input></label>
-            <label for="inp-3">
-                <input type="checkbox"
-                       name="inp">Gaming</input></label>
-            
+    <div class="flex-container">
+        <h1>Welcome to pro Pc</h1>
         </div>
 
-        <div class="form-control">
-            <label>Question 2
-                <small>(Check all that apply)</small>
-            </label>
-            <!-- Input Type Checkbox -->
-            <label for="inp-1">
-                <input type="checkbox"
-                       name="inp">Option 1</input></label>
-            <label for="inp-2">
-                <input type="checkbox"
-                       name="inp">Option 2</input></label>
-            <label for="inp-3">
-                <input type="checkbox"
-                       name="inp">Option 3</input></label>
-            
+        <div class="dropdown">
+            <div class="select">
+                <span class="selected">Chose an option</span>
+                <div class="caret"></div>
+            </div>
+            <ul class="menu">
+                <li class="active">Chose an option</li>
+                <li>Personal</li>
+                <li>Work</li>
+                <li>School</li>
+                <li>Media Production</li>
+                <li>Gaming</li>
+            </ul>
         </div>
 
-        <div class="form-control">
-            <label>Question 3
-                <small>(Check all that apply)</small>
-            </label>
-            <!-- Input Type Checkbox -->
-            <label for="inp-1">
-                <input type="checkbox"
-                       name="inp">Option 1</input></label>
-            <label for="inp-2">
-                <input type="checkbox"
-                       name="inp">Option 2</input></label>
-            <label for="inp-3">
-                <input type="checkbox"
-                       name="inp">Option 3</input></label>
-            
+        <div class="dropdown">
+            <div class="select">
+                <span class="selected">Chose an option</span>
+                <div class="caret"></div>
+            </div>
+            <ul class="menu">
+                <li class="active">Chose an option</li>
+                <li>Less than $600</li>
+                <li>$600 - $800</li>
+                <li>$1000 - $2000</li>
+                <li>$2000+</li>
+            </ul>
         </div>
 
-        <div class="form-control">
-            <label>Question 4
-                <small>(Check all that apply)</small>
-            </label>
-            <!-- Input Type Checkbox -->
-            <label for="inp">
-                <input type="checkbox"
-                       name="inp">Option 1</input></label>
-            <label for="inp">
-                <input type="checkbox"
-                       name="inp-2">Option 2</input></label>
-            <label for="inp-3">
-                <input type="checkbox"
-                       name="inp-3">Option 3</input></label>
-            
+        <div class="dropdown">
+            <div class="select">
+                <span class="selected">Chose an option</span>
+                <div class="caret"></div>
+            </div>
+            <ul class="menu">
+                <li class="active">Chose an option</li>
+                <li>Aesthetic</li>
+                <li>Not Aesthetic</li>
+            </ul>
         </div>
-
-        <div class="form-control">
-            <label>Question 5
-                <small>(Check all that apply)</small>
-            </label>
-            <!-- Input Type Checkbox -->
-            <label for="inp-1">
-                <input type="checkbox"
-                       name="inp">Option 1</input></label>
-            <label for="inp-2">
-                <input type="checkbox"
-                       name="inp-2">Option 2</input></label>
-            <label for="inp-3">
-                <input type="checkbox"
-                       name="inp">Option 3</input></label>
-            
-        </div>
-
+        <script src="test.js"></script>
   
         <!-- Multi-line Text Input Control -->
         <button id="submitForm" type="submit" value="submit">
@@ -123,5 +63,6 @@
     </form>
 
     <script src="CodeRedPros.js"></script>
+    <script src="home.js"></script>
     </body>
 </html>
