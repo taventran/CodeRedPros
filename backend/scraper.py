@@ -40,6 +40,7 @@ def parse_cpu():
             #print(line2)
     return info
 
+
 def add_to_database_cpu():
     info = parse_cpu()
     for i in info:
@@ -75,8 +76,17 @@ def parse_gpu():
             newDict.append({"name": brand, "price": price, "clockSpeed": clockSpeed, "memory": memory})
     return newDict
 
+def add_to_database_gpu():
+    info = parse_gpu()
+    for i in info:
+        model = models.GPU()
+        model.name = i.get('name')
+        model.coreClock = i.get('clockSpeed')
+        model.price = i.get('price')
+        model.memory = i.get('memory')
+        model.save()
+
 
 
 #print(gpu_data['video-card']) # price name-(brand + model) core_clock and memory
-parse_gpu()
-parse_cpu()
+
