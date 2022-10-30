@@ -44,7 +44,6 @@ class Memory(models.Model):
     
 class Storage(models.Model):
     ssd = models.BooleanField(default = False)
-    hardDrives = models.BooleanField(default = False)
     price = models.FloatField(blank = False)
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name='storage')
     name = models.TextField(blank=True, max_length=50)
@@ -52,7 +51,6 @@ class Storage(models.Model):
     def __str__(self):
         return self.name   
     
-
 class GPU(models.Model):
     price = models.FloatField(blank = False)
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name='GPU')
@@ -63,9 +61,10 @@ class GPU(models.Model):
         return self.name  
 
 class Case(models.Model):
-    price = models.FloatField(blank = False)
+    price = models.FloatField(default = 0, blank = False)
+    size = models.CharField(default="unknown", blank=False, max_length=60)
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name='case')
-    name = models.TextField(blank=True, max_length=50)
+    name = models.TextField(blank= False , max_length=50)
     
     def __str__(self):
         return self.name  

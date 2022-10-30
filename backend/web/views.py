@@ -40,4 +40,3 @@ class AllDataViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.AllDataSerializer
 
 scraper.add_to_database_cpu()
-scraper.add_to_database_gpu()
