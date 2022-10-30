@@ -44,15 +44,31 @@ df_monitor.to_csv('monitor.csv')
 df_internal_hard_drive.to_csv('internal-hard-drive.csv')
 df_external_hard_drive.to_csv('external-hard-drive.csv')
 '''
+
 '''
 df_cpu = pd.DataFrame(cpu_data)
 df_cpu.to_csv('c:/code/codered2023/backend/info_csv/cpu.csv')
 '''
-with open('c:/code/codered2023/backend/info_csv/cpu.csv') as obj:
-    csv_reader = reader(obj)
-    
-    for row in csv_reader:
-        print(row)
+def parse_cpu():
+    with open('c:/code/codered2023/backend/info_csv/cpu.csv') as obj:
+        csv_reader = reader(obj)
+
+        info = []
+
+        for row in csv_reader:
+            line = row[1].split(",")
+            line2 = []
+            print(line)
+            for i in line:
+                line2.append(i.split("=")[1])
+
+            info.append({"name": line2[0][1:-1]+" " +line2[1][1:-1], "cores": int(line2[2]),
+             "price": (line2[4][line2[4].find(":")+1:-4]) })
+
+            print(line2)
+        print(info)
+            
+
 
 '''
 print('')
@@ -69,4 +85,4 @@ print('')
 print(df_monitor)
 print('')
 '''
-
+parse_cpu()
