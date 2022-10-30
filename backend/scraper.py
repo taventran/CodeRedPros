@@ -107,6 +107,17 @@ def parse_gpu():
             newDict.append({"name": brand, "price": price, "clockSpeed": clockSpeed, "memory": memory})
     return newDict
 
+def add_to_database_gpu():
+    data = parse_gpu()
+    for i in data:
+        model = models.GPU()
+        model.price = i.get('price')
+        model.name = i.get('name')
+        model.coreClock = i.get('clockSpeed')
+        model.memory = i.get('memory')
+        model.save()
+        
+
 def parse_cpu_cooler():
     data = list(cpu_cooler_data['cpu-cooler'])
     newList = []
