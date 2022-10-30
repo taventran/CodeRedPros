@@ -1,6 +1,6 @@
 
 body {
-    background-color: #656565;
+    background-color: #23242a;
     font-family: Verdana, sans-serif;
     text-align: center;
 }
@@ -25,7 +25,7 @@ body {
     background-color: whitesmoke;
     border-radius: 10px;
     margin: 15px;
-    box-shadow: black 2px 2px;
+    box-shadow: #949494 2px 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,7 @@ body {
 }
 .card:hover{
     transition: 0.2s ease;
-    box-shadow: black 4px 4px;
+    box-shadow: #00ff12 4px 4px;
 }
 
 .statCard{
@@ -42,7 +42,7 @@ body {
     border-radius: 10px;
     margin: 15px;
     padding: 15px;
-    box-shadow: black 2px 2px;
+    box-shadow: #949494 2px 2px;
     height: 60px;
 
 }
@@ -51,7 +51,7 @@ body {
 }
 .statCard:hover{
     transition: 0.2s ease;
-    box-shadow: black 4px 4px;
+    box-shadow: #00ff12 4px 4px;
 }
 
 #softwareRecommended{
@@ -83,3 +83,6 @@ body {
     color: green;
 }
 
+.header {
+    color: #ffff;
+}
