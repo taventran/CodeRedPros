@@ -20,7 +20,7 @@ class MemorySerializer(serializers.ModelSerializer):
 class StorageSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Storage
-        fields = ('ssd', 'hardDrives', 'price', 'name', "storage")
+        fields = ('ssd', 'price', 'name', "capacity")
 
 class GPUSerializer(serializers.ModelSerializer):
     class Meta:
@@ -35,7 +35,7 @@ class PowerSupplySerializer(serializers.ModelSerializer):
 class CaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Case
-        fields = ('price', 'name')
+        fields = ('price', 'name', 'size')
 
 class AllDataSerializer(serializers.ModelSerializer):
     CPU = CPUSerializer(many=True, required=False)

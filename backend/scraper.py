@@ -1,13 +1,6 @@
-"""
-
-To get access to API run - pip install pcpartpicker
-
-"""
-
-from re import L
 from pcpartpicker import API
-import pandas as pd
 from csv import reader
+from web import models
 api = API()
 
 cpu_data = api.retrieve("cpu")
@@ -45,23 +38,37 @@ def parse_internal_hard_drive_data():
 
     return newDict
 
+def add_to_database_hdd():
+    data = parse_internal_hard_drive_data()
+
+    for i in data:
+        model = models.Storage()
+        model.ssd = i.get('ssd')
+        model.price = i.get('price')
+        model.name = i.get('name')
+        model.capacity = i.get('capacity')
+        model.save()
+
+
 def parse_cpu():
     with open('c:/code/codered2023/backend/info_csv/cpu.csv') as obj:
         csv_reader = reader(obj)
 
         info = []
-
+        
         for row in csv_reader:
             line = row[1].split(",")
             line2 = []
-            #print(line)
+            price = float(line[8][line[8].find(":")+2:-6])
+            clock = line[3][line[3].find("s=")+2:-1]
+            print(clock)
+            cpuClockSpeed = int(clock)
             for i in line:
                 line2.append(i.split("=")[1])
 
             info.append({"name": line2[0][1:-1]+" " +line2[1][1:-1], "cores": int(line2[2]),
-             "price": (line2[4][line2[4].find(":")+1:-4]) })
+             "price": price, "clockSpeed": cpuClockSpeed })
 
-            #print(line2)
     return info
 
 def add_to_database_cpu():
@@ -73,6 +80,7 @@ def add_to_database_cpu():
         model.price = i.get("price")
         model.clockSpeed = i.get("clockSpeed")
         model.save()
+
 
 
 def parse_gpu():
@@ -123,6 +131,16 @@ def parse_cpu_cooler():
 
     return newDict
 
+def add_to_database_cpuCooler():
+    info = parse_cpu_cooler()
+    for i in info:
+        if i.get('price') == 0:
+            continue
+        model = models.CPUCooler()
+        model.name = i.get('name')
+        model.price = i.get('price')
+        model.save()
+
 def parse_case_data():
     data = list(case_data['case'])
     newList = []
@@ -148,6 +166,16 @@ def parse_case_data():
 
     #print(newDict)
     return newDict
+
+def add_to_database_case():
+    info = parse_case_data()
+    for i in info:
+        model = models.Case()
+        model.name = i.get('name')
+        model.size = i.get('form_factor')
+        model.price = i.get('price')
+        model.save()
+
 
 def parse_memory_data():
     data = list(memory_data['memory'])
@@ -176,4 +204,12 @@ def parse_memory_data():
 
     return newDict
 
-print(parse_internal_hard_drive_data())
+def add_to_database_memory():
+    data = parse_memory_data()
+    for i in data:
+        model = models.Memory()
+        model.price = i.get('price')
+        model.gigs = i.get('memory')
+        model.name = i.get('name')
+        model.save()
+
