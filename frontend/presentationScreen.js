@@ -28,6 +28,7 @@ function setImages(){
             imgOne.src = "assets/steam.png"
             imgTwo.src = "assets/battlenet.png"
             imgThree.src = "assets/discord.png"
+            break;
         case 2:
             anchorOne.href = "https://www.notion.com/"
             anchorTwo.href = "https://www.malwarebytes.com/"
@@ -35,6 +36,7 @@ function setImages(){
             imgOne.src = "assets/notion.png"
             imgTwo.src = "assets/malwarebytes.png"
             imgThree.src = "assets/spotify.png"
+            break;
         case 3:
             anchorOne.href = "https://www.notion.com/"
             anchorTwo.href = "https://www.slack.com/"
@@ -42,6 +44,7 @@ function setImages(){
             imgOne.src = "assets/notion.png"
             imgTwo.src = "assets/slack.png"
             imgThree.src = "assets/office365.png"
+            break;
         case 4:
             anchorOne.href = "https://www.canva.com/"
             anchorTwo.href = "https://www.figma.com/"
@@ -49,6 +52,7 @@ function setImages(){
             imgOne.src = "assets/canva.png"
             imgTwo.src = "assets/figma.png"
             imgThree.src = "assets/adobe.png"
+            break;
         case 5:
             anchorOne.href = "https://www.notion.com/"
             anchorTwo.href = "https://www.groupme.com/"
@@ -56,6 +60,9 @@ function setImages(){
             imgOne.src = "assets/notion.png"
             imgTwo.src = "assets/groupme.png"
             imgThree.src = "assets/office365.png"
+            break;
+        default:
+            break;
 
     }
 
