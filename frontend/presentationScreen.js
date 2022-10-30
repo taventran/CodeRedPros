@@ -46,12 +46,45 @@ partCards.forEach((partCard) => {
     partCard.addEventListener("click", function () {
         let overlay = document.getElementById("overlay");
         overlay.style.display = "block";
-    });
-})
-
-
-
-
+        let overlayTitle = document.getElementById("Title");
+        let overlayDescription = document.getElementById("Desc");
+        switch (this.id){
+            case "cpu":
+                overlayTitle.innerHTML = "CPU";
+                overlayDescription.innerHTML = "The CPU, or Central Processing Unit, is the brains of your computer. It handles all the tasks sent at it and manages everything you may need.";
+                break;
+            case "cpucooler":
+                overlayTitle.innerHTML = "CPU Cooler";
+                overlayDescription.innerHTML = "The CPU Cooler is designed to keep the brains of your computer cool. It is a vital part of any build and should be kept clean and in good condition.";
+                break;
+            case "ram":
+                overlayTitle.innerHTML = "RAM";
+                overlayDescription.innerHTML = "The RAM, or Random Access Memory, is used to temporarily store data for your computer to handle in its processing. The data gets cleared whenever you reset your computer, but usually, a safe shutdown will prevent any important data lost";
+                break;
+            case "gpu":
+                overlayTitle.innerHTML = "GPU";
+                overlayDescription.innerHTML = "The GPU, or video card, is used primarily to process graphical information, from images to video games. It is the most important part of a gaming PC, as it is the part that will determine how well your games will run. The GPU is also used to process video and images, so it is important to have a good one if you plan on doing any video editing or photo editing.";
+                break;
+            case "storage":
+                overlayTitle.innerHTML = "Storage";
+                overlayDescription.innerHTML = "This is where data is stored on your computer. This is where your operating system, programs, and files are stored. The more storage you have, the more data you can store on your computer. The more data you have, the more your computer will have to work to access it. This can slow down your computer. If you have a lot of data, you should consider getting a larger storage drive.";
+                break;
+            case "case":
+                overlayTitle.innerHTML = "Case";
+                overlayDescription.innerHTML = "This is what holds all your precious computer parts, keeping it safe and cool. It also has a window so you can show off your build.";
+                break;
+            case "psu":
+                overlayTitle.innerHTML = "Power Supply";
+                overlayDescription.innerHTML = "This is what powers your computer. It converts the electricity from your wall outlet into the electricity your computer needs to run.";
+                break;
+            case "mobo":
+                overlayTitle.innerHTML = "Motherboard";
+                overlayDescription.innerHTML = "This is the main circuit board of your computer. It connects all the other parts together.";
+                break;
+            default:
+                break;
+        }
+})})
 
 function setImages(){
     switch (useCase) {

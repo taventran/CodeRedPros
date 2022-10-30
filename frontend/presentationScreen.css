@@ -76,12 +76,15 @@ body {
 #overlay {
     position: fixed;
     display: none;
-    width: 25%;
-    height: 25%;
-    top: 35%;
-    left: 35%;
+    width: 35%;
+    height: 35%;
+    top: 35vh;
+    left: 35vw;
     right: 0;
     bottom: 0;
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
     background-color: rgba(0,0,0,0.8);
     z-index: 2;
     cursor: pointer;
@@ -91,12 +94,18 @@ body {
     box-shadow: #949494 2px 2px;
 }
 
+#tips ul {
+    list-style: none;
+    margin-left: -20px;
+}
+
 #title{
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: 50px;
+    font-size: 2em;
     color: white;
+
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
 }
