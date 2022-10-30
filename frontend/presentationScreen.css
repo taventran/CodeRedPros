@@ -26,6 +26,10 @@ body {
     border-radius: 10px;
     margin: 15px;
     box-shadow: black 2px 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .card:hover{
     transition: 0.2s ease;
@@ -39,7 +43,21 @@ body {
     margin: 15px;
     padding: 15px;
     box-shadow: black 2px 2px;
+    height: 60px;
+
 }
+.otherContent{
+    display: none;
+}
+.statCard:hover{
+    transition: 0.2s ease;
+    box-shadow: black 4px 4px;
+
+}
+.statCard.isOpen{
+    height: 200px;
+}
+
 #priceValue, .price{
     color: green;
 }
