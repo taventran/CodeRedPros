@@ -5,7 +5,7 @@ from rest_framework.decorators import action
 from web import serializers
 from web import models
 from rest_framework.parsers import MultiPartParser, FormParser
-
+import scraper
 # Create your views here.
 
 class UserDataViewSet(viewsets.ModelViewSet):
@@ -68,3 +68,6 @@ class AllDataViewSet(viewsets.ModelViewSet):
     queryset = models.AllData.objects.all()
     serializer_class = serializers.AllDataSerializer
 
+class OutputComputerViewSet(viewsets.ModelViewSet):
+    queryset = models.OutputComputer.objects.all()
+    serializer_class = serializers.OutPutComputerSerializer

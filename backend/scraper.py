@@ -1,6 +1,6 @@
 from pcpartpicker import API
 from csv import reader
-#from web import models
+from web import models
 
 api = API()
 
@@ -50,7 +50,7 @@ def add_to_database_powerSupply():
         model.name = i.get('name')
         model.save()
 
-    add_to_database_powerSupply()
+    
 
 def parse_memory_data():
     data = list(memory_data['memory'])
@@ -78,6 +78,17 @@ def parse_memory_data():
                 newDict.append({"name": brand, "price": price, "memory": int(memory)})
 
     return newDict
+
+def add_to_table_memory():
+    info = parse_memory_data()
+    for i in info:
+        model = models.Memory()
+        model.name = i.get('name')
+        model.price = i.get('price')
+        model.gigs = i.get('gigs')
+        model.save()
+
+
 
 def parse_mobo_data():
     data = list(mobo_data['motherboard'])

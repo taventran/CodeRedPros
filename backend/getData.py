@@ -1,7 +1,9 @@
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 import numpy as np
 import requests
-
+import random
 
 def getWeights(use, budget):
     weights = ()
@@ -14,7 +16,6 @@ def getWeights(use, budget):
     mobo = 0
     case = 0
     psu = 0
-
 
     if use == "1":
         cpu = 0.2
@@ -128,8 +129,54 @@ def getPSU(budgetMax, budgetMin):
     return df[:10]
 
 
+def CPUData():
+    sns.set_theme(style="whitegrid", palette="muted")
+    data_cpu = getCPU(400, 100)
 
+    sns.swarmplot(data=data_cpu, x="coreCount", y="price")
+    line = ""
+    for i in range(10):
+        line += str(random.randint(0, 9))
 
+    plt.savefig(f'images/{line}.png')
+    
+    return f'images/{line}.png'
 
+def CPUCoolerData():
+    sns.set_theme(style="darkgrid", palette="muted")
+    data_cpu_cooler = getCPUCooler(400, 100)
 
-print(getGPU(400, 100))
+    sns.swarmplot(data=data_cpu_cooler, x="name", y="price")
+    plt.xticks(
+        rotation = 45,
+        horizontalalignment = "right",
+        fontweight = 'light',
+        fontsize = 5
+    )
+    line = ""
+    for i in range(10):
+        line += str(random.randint(0, 9))
+
+    plt.savefig(f'images/{line}.png')
+    
+    return f'images/{line}.png'
+
+def GPUData():
+    sns.set_theme(style="whitegrid", palette="muted")
+    data_gpu = getGPU(200, 100)
+    #print(getGPU(400, 100))
+    sns.swarmplot(data=data_gpu, x="price", y="coreClock")
+    plt.xticks(
+        rotation = 45,
+        horizontalalignment = "right",
+        fontweight = 'light',
+        fontsize = 5
+    )
+
+    line = ""
+    for i in range(10):
+        line += str(random.randint(0, 9))
+
+    plt.savefig(f'images/{line}.png')
+    
+    return f'images/{line}.png'

@@ -1,30 +1,11 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import random
+import getData
 
-'''
-def generate_graph():
-    cpu_name = ["AMD 5600X", "AMD 5800X", "Intel Core i7", "AMD 5600", "Intel Core i5", "AMD 5900X"]
-    cpu_price = [158.98, 249.00, 364.99, 139.99, 269.99, 349.99,]
-    cpu_core_clock = [3.7, 3.8, 3.6, 3.5, 3.7, 3.7]
 
-    sns.set_style("dark")
-    data_plot_cpu1 = pd.DataFrame({"Name": cpu_name, "Price": cpu_price})
-    data_plot_cpu2 = pd.DataFrame({"Name": cpu_name, "Core Clock": cpu_core_clock})
-    sns.lineplot(x="Name", y="Price", data=data_plot_cpu1)
-    sns.lineplot(x="Name", y="Core Clock", data=data_plot_cpu2)
-    line = ""
-    for i in range(10):
-        line += str(random.randint(0, 9))
-    
-    line += ".png"
-    plt.savefig(f"images/{line}")
-
-    return f"images/{line}"
-
-'''
 # Create your models here.
 
 def upload_to(instance, filename):
@@ -35,12 +16,32 @@ class UserData(models.Model):
     aesthetic = models.BooleanField(default=False)
     priceRange = models.FloatField(default=10, blank=False)
     size = models.IntegerField(default = 1, blank = False)
-    #image_url = models.ImageField(upload_to=upload_to, blank=True, null=True, default=val)
+    # val = (getData.CPUData())
+    # val2 = (getData.CPUCoolerData())
+    # val3 = (getData.GPUData())
+    # image_url = models.ImageField(upload_to=upload_to, blank=True, null=True, default=val)
+    # image_url2 = models.ImageField(upload_to=upload_to, blank=True, null=True, default=val2)
+    # image_url3 = models.ImageField(upload_to=upload_to, blank=True, null=True, default=val3)  
 
 class OutputComputer(models.Model):
-     # Make serializer for this. 
-     # will be finalized suggestion
-    total_price = models.FloatField(blank = False)
+    cpu = models.CharField(max_length=50, default="nothing")
+    cpu_p = models.FloatField(blank =False, default = 10)
+    gpu = models.CharField(max_length=50, default="nothing")
+    gpu_p = models.FloatField(blank =False, default = 10)
+    cpuCooler = models.CharField(max_length=50, default="nothing")
+    cpuCooler_p = models.FloatField(blank =False, default = 10)
+    motherboard = models.CharField(max_length=50, default="nothing")
+    motherboard_p = models.FloatField(blank =False, default = 10)
+    storage = models.CharField(max_length=50, default="nothing")
+    storage_p = models.FloatField(blank =False, default = 10)
+    memory = models.CharField(max_length=50, default="nothing")
+    memory_p = models.FloatField(blank =False, default = 10)
+    total_price = models.FloatField(max_length=50, default = 10)
+    case = models.CharField(max_length=50, default="nothing")
+    case_p = models.FloatField(blank =False, default = 10)
+    powerSupply = models.CharField(max_length=50, default="nothing")
+    powerSupply_p = models.FloatField(blank =False, default = 10)
+
 
 class AllData(models.Model): # All data compiled here
     DEFAULT_PK = 1
@@ -80,7 +81,7 @@ class Memory(models.Model):
     price = models.FloatField()
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name="memory")
     name = models.TextField(blank=True, max_length=50)
-    gigs = models.IntegerField(blank = False, default = 0)
+    gigs = models.IntegerField(blank = False, default = 0, null=True)
 
     def __str__(self):
         return self.name   

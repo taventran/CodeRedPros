@@ -1,6 +1,11 @@
 from rest_framework import serializers
 from web import models
 
+class OutPutComputerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.OutputComputer
+        fields = ('cpu', 'cpu_p', 'gpu', 'gpu_p', 'cpuCooler', 'cpuCooler_p', 'storage', 'storage_p', 'memory', 'memory_p', 'case', 'case_p', 'powerSupply')
+
 class MotherboardSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Motherboard
@@ -57,4 +62,4 @@ class AllDataSerializer(serializers.ModelSerializer):
 class UserDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserData
-        fields = ('use', 'aesthetic', 'priceRange', 'size')
+        fields = ('use', 'aesthetic', 'priceRange', 'size', 'image_url')

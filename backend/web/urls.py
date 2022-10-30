@@ -13,6 +13,7 @@ router.register('memory', views.MemoryViewSet)
 router.register('storage', views.StorageViewSet)
 router.register('GPU', views.GPUViewSet)
 router.register('case', views.CaseViewSet)
+router.register('outputcomputer', views.OutputComputerViewSet)
 
 
 urlpatterns = [
