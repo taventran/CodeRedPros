@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from web import serializers
 from web import models
+import scraper
 
 # Create your views here.
 class CPUViewSet(viewsets.ModelViewSet):
@@ -37,3 +38,6 @@ class CaseViewSet(viewsets.ModelViewSet):
 class AllDataViewSet(viewsets.ModelViewSet):
     queryset = models.AllData.objects.all()
     serializer_class = serializers.AllDataSerializer
+
+scraper.add_to_database_cpu()
+scraper.add_to_database_gpu()
