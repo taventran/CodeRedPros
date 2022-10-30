@@ -4,6 +4,7 @@ from web import views
 from rest_framework import routers
 
 router = routers.DefaultRouter()
+router.register('userdata', views.UserDataViewSet)
 router.register('motherboard', views.MotherboardViewSet)
 router.register('CPU', views.CPUViewSet)
 router.register('powersupply', views.PowerSupplyViewSet)

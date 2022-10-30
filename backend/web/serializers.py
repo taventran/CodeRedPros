@@ -53,3 +53,8 @@ class AllDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.AllData
         fields = ('CPU', 'CPUCooler', 'memory', 'storage', 'GPU', 'powerSupply', 'case',)
+
+class UserDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.UserData
+        fields = ('use', 'aesthetic', 'priceRange', 'size')

@@ -1,7 +1,14 @@
 from django.db import models
+from numpy import maximum
 
 
 # Create your models here.
+
+class UserData(models.Model):
+    use = models.IntegerField(default = 1, blank = False)
+    aesthetic = models.BooleanField(default=False)
+    priceRange = models.FloatField(default=10, blank=False)
+    size = models.IntegerField(default = 1, blank = False)
 
 class OutputComputer(models.Model):
      # Make serializer for this. 

@@ -8,6 +8,26 @@ import scraper
 
 # Create your views here.
 
+class UserDataViewSet(viewsets.ModelViewSet):
+    queryset = models.UserData.objects.all()
+    serializer_class = serializers.UserDataSerializer
+    @action(detail=True, methods=["POST"])
+    def makeUserData(self, request, pk=None):
+        if 'use' and 'aesthetic' and 'priceRange' and 'size' in request.data:
+            use = request['use']
+            aesthetic = request['aesthetic']
+            priceRange = request['priceRange']
+            size = request['size']
+            serializer = serializers.UserDataSerializer
+            Data = models.UserData.objects.create(use=use, aesthetic=aesthetic, 
+            priceRange=priceRange, size=size)
+            response = {'message': 'New data', 'result':serializer.data}
+            return Response(response, status.HTTP_200_OK)
+        else:
+            response = {'message': 'Missing info'}
+            return Response(response, status=status.HTTP_400_BAD_REQUEST)
+
+            
 class MotherboardViewSet(viewsets.ModelViewSet):
     queryset = models.Motherboard.objects.all()
     serializer_class = serializers.MotherboardSerializer
