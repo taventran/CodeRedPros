@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b46e1e2-d75c-4f0b-b575-b3ae4d202673" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/getData.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/CodeRedPros.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/CodeRedPros.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/CodeRedPros.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/CodeRedPros.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/homePageStyling.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/homePageStyling.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/presentationScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/presentationScreen.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/presentationScreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/presentationScreen.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +52,6 @@
       <module name="CodeRedPros" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="C:\Users\Allen Arani\PycharmProjects\CodeRedPros\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -166,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667133316915</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added parses">
+      <created>1667133372893</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667133372893</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
