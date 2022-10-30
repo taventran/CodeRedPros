@@ -57,4 +57,4 @@ class AllDataSerializer(serializers.ModelSerializer):
 class UserDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserData
-        fields = ('use', 'aesthetic', 'priceRange', 'size', 'image_url')
+        fields = ('use', 'aesthetic', 'priceRange', 'size')

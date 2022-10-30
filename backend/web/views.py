@@ -16,14 +16,16 @@ class UserDataViewSet(viewsets.ModelViewSet):
     def makeUserData(self, request, pk=None):
         if 'use' and 'aesthetic' and 'priceRange' and 'size' in request.data:
             use = request['use']
+            print(use)
             aesthetic = request['aesthetic']
             priceRange = request['priceRange']
             size = request['size']
-            serializer = serializers.UserDataSerializer
-            Data = models.UserData.objects.create(use=int(use), aesthetic=int(aesthetic), 
+            data = models.UserData.objects.create(use=int(use), aesthetic=int(aesthetic), 
                 priceRange=float(priceRange), size=int(size))
-            Data.save()
-            response = {'message': 'New data', 'result':serializer.data}
+            data.save()
+            serializer = serializers.UserDataSerializer(data)
+
+            response = {'message': 'New data', 'result': serializer.data}
             return Response(response, status.HTTP_200_OK)
         else:
             response = {'message': 'Missing info'}

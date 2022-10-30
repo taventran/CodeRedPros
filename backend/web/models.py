@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import random
 
-
+'''
 def generate_graph():
     cpu_name = ["AMD 5600X", "AMD 5800X", "Intel Core i7", "AMD 5600", "Intel Core i5", "AMD 5900X"]
     cpu_price = [158.98, 249.00, 364.99, 139.99, 269.99, 349.99,]
@@ -24,7 +24,7 @@ def generate_graph():
 
     return f"images/{line}"
 
-
+'''
 # Create your models here.
 
 def upload_to(instance, filename):
@@ -35,8 +35,7 @@ class UserData(models.Model):
     aesthetic = models.BooleanField(default=False)
     priceRange = models.FloatField(default=10, blank=False)
     size = models.IntegerField(default = 1, blank = False)
-    val = generate_graph()
-    image_url = models.ImageField(upload_to=upload_to, blank=True, null=True, default=val)
+    #image_url = models.ImageField(upload_to=upload_to, blank=True, null=True, default=val)
 
 class OutputComputer(models.Model):
      # Make serializer for this. 
