@@ -45,6 +45,7 @@ class Memory(models.Model):
 class Storage(models.Model):
     ssd = models.BooleanField(default = False)
     price = models.FloatField(blank = False)
+    capacity = models.FloatField(blank = False, default=0)
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name='storage')
     name = models.TextField(blank=True, max_length=50)
     
@@ -79,4 +80,3 @@ class PowerSupply(models.Model):
     def __str__(self):
         return self.name
     
-
