@@ -1,6 +1,6 @@
 from pcpartpicker import API
 from csv import reader
-from web import models
+# from web import models
 api = API()
 
 cpu_data = api.retrieve("cpu")
@@ -11,6 +11,7 @@ case_data = api.retrieve("case")
 cpu_cooler_data = api.retrieve("cpu-cooler")
 monitor_data = api.retrieve("monitor")
 internal_hard_drive_data = api.retrieve("internal-hard-drive")
+mobo_data = api.retrieve("motherboard")
 
 def parse_powerSupply():
     data = list(power_supply_data['power-supply'])
@@ -38,17 +39,17 @@ def parse_powerSupply():
         newDict.append(line)
     return newDict
 
-def add_to_database_powerSupply():
-    info = parse_powerSupply()
-    for i in info:
-        model = models.PowerSupply()
-        model.price = i.get('price')
-        model.watts = i.get('watts')
-        model.effiency = i.get('effiency')
-        model.name = i.get('name')
-        model.save()
-
-add_to_database_powerSupply()
+# def add_to_database_powerSupply():
+#     info = parse_powerSupply()
+#     for i in info:
+#         model = models.PowerSupply()
+#         model.price = i.get('price')
+#         model.watts = i.get('watts')
+#         model.effiency = i.get('effiency')
+#         model.name = i.get('name')
+#         model.save()
+#
+# add_to_database_powerSupply()
 
 def parse_memory_data():
     data = list(memory_data['memory'])
@@ -77,6 +78,34 @@ def parse_memory_data():
 
     return newDict
 
+def parse_mobo_data():
+    data = list(mobo_data['motherboard'])
+    newList = []
+    print(data)
+    for i in range(len(data)):
+        temp = str(data[i])
+        newList.append(temp)
+        #print(temp)
+
+    for i in range(len(newList)):
+        newList[i] = newList[i][newList[i].find('(') + 1:newList[i].rindex(')')]
+        newList[i] = list(newList[i].split(','))
+        for x in range(len(newList[i])):
+            newList[i][x] = newList[i][x][newList[i][x].find('=') + 2:-1]
+        #print(newList[i])
+
+    newDict = []
+    for i in range(len(newList)):
+        if "0.0" != newList[i][-1]:
+            brand = newList[i][0] + " " + newList[i][1]
+            price = float(newList[i][-1][newList[i][-1].find(':') + 2:-4])
+            #speed = newList[i][3][newList[i][3].find('=') + 1:]
+            size = newList[i][3][newList[i][3].find('=') + 1:]
+            if price != 0.0:
+                newDict.append({"name": brand, "price": price, "size": size})
+
+    return newDict
+print(parse_mobo_data())
 def parse_internal_hard_drive_data():
     data = list(internal_hard_drive_data['internal-hard-drive'])
     newList = []
@@ -103,16 +132,16 @@ def parse_internal_hard_drive_data():
 
     return newDict
 
-def add_to_database_hdd():
-    data = parse_internal_hard_drive_data()
-
-    for i in data:
-        model = models.Storage()
-        model.ssd = i.get('ssd')
-        model.price = i.get('price')
-        model.name = i.get('name')
-        model.capacity = i.get('capacity')
-        model.save()
+# def add_to_database_hdd():
+#     data = parse_internal_hard_drive_data()
+#
+#     for i in data:
+#         model = models.Storage()
+#         model.ssd = i.get('ssd')
+#         model.price = i.get('price')
+#         model.name = i.get('name')
+#         model.capacity = i.get('capacity')
+#         model.save()
 
 
 def parse_cpu():
@@ -136,15 +165,15 @@ def parse_cpu():
 
     return info
 
-def add_to_database_cpu():
-    info = parse_cpu()
-    for i in info:
-        model = models.CPU()
-        model.name = i.get("name")
-        model.coreCount = i.get("cores")
-        model.price = i.get("price")
-        model.clockSpeed = i.get("clockSpeed")
-        model.save()
+# def add_to_database_cpu():
+#     info = parse_cpu()
+#     for i in info:
+#         model = models.CPU()
+#         model.name = i.get("name")
+#         model.coreCount = i.get("cores")
+#         model.price = i.get("price")
+#         model.clockSpeed = i.get("clockSpeed")
+#         model.save()
 
 
 
@@ -172,15 +201,15 @@ def parse_gpu():
             newDict.append({"name": brand, "price": price, "clockSpeed": clockSpeed, "memory": memory})
     return newDict
 
-def add_to_database_gpu():
-    data = parse_gpu()
-    for i in data:
-        model = models.GPU()
-        model.price = i.get('price')
-        model.name = i.get('name')
-        model.coreClock = i.get('clockSpeed')
-        model.memory = i.get('memory')
-        model.save()
+# def add_to_database_gpu():
+#     data = parse_gpu()
+#     for i in data:
+#         model = models.GPU()
+#         model.price = i.get('price')
+#         model.name = i.get('name')
+#         model.coreClock = i.get('clockSpeed')
+#         model.memory = i.get('memory')
+#         model.save()
         
 
 def parse_cpu_cooler():
@@ -207,15 +236,15 @@ def parse_cpu_cooler():
 
     return newDict
 
-def add_to_database_cpuCooler():
-    info = parse_cpu_cooler()
-    for i in info:
-        if i.get('price') == 0:
-            continue
-        model = models.CPUCooler()
-        model.name = i.get('name')
-        model.price = i.get('price')
-        model.save()
+# def add_to_database_cpuCooler():
+#     info = parse_cpu_cooler()
+#     for i in info:
+#         if i.get('price') == 0:
+#             continue
+#         model = models.CPUCooler()
+#         model.name = i.get('name')
+#         model.price = i.get('price')
+#         model.save()
 
 def parse_case_data():
     data = list(case_data['case'])
@@ -243,14 +272,14 @@ def parse_case_data():
     #print(newDict)
     return newDict
 
-def add_to_database_case():
-    info = parse_case_data()
-    for i in info:
-        model = models.Case()
-        model.name = i.get('name')
-        model.size = i.get('form_factor')
-        model.price = i.get('price')
-        model.save()
+# def add_to_database_case():
+#     info = parse_case_data()
+#     for i in info:
+#         model = models.Case()
+#         model.name = i.get('name')
+#         model.size = i.get('form_factor')
+#         model.price = i.get('price')
+#         model.save()
 
 
 def parse_memory_data():
@@ -280,12 +309,12 @@ def parse_memory_data():
 
     return newDict
 
-def add_to_database_memory():
-    data = parse_memory_data()
-    for i in data:
-        model = models.Memory()
-        model.price = i.get('price')
-        model.gigs = i.get('memory')
-        model.name = i.get('name')
-        model.save()
+# def add_to_database_memory():
+#     data = parse_memory_data()
+#     for i in data:
+#         model = models.Memory()
+#         model.price = i.get('price')
+#         model.gigs = i.get('memory')
+#         model.name = i.get('name')
+#         model.save()
 
