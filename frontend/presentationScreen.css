@@ -4,5 +4,33 @@ body {
     font-family: Verdana, sans-serif;
     text-align: center;
 }
+#main{
+    align-content: center;
+}
+
+
+#itemContainer{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+#collection{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    width: 25%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin: 15px;
+    box-shadow: black 2px 2px;
+}
+.card:hover{
+    transition: 0.2s ease;
+    box-shadow: black 4px 4px;
+}
 
 
