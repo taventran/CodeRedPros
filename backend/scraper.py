@@ -8,6 +8,7 @@ from re import L
 from pcpartpicker import API
 import pandas as pd
 from csv import reader
+from web import models
 api = API()
 
 cpu_data = api.retrieve("cpu")
