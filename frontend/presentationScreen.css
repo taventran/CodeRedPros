@@ -102,9 +102,13 @@ body {
 }
 
 
-.otherContent.active{
+.otherContent.active #softwareRecommended{
     display: flex;
     flex-direction: row;
+}
+.otherContent.active{
+    display: block;
+    text-align: center;
 }
 
 #priceValue, .price{

@@ -23,7 +23,18 @@ statCards.forEach((statCard) => {
                 recIcon.classList.toggle("activeImg");
             })
         }
-        console.log("hovered");
+        if(statCard.getAttribute("id") === "firstStat"){
+            let curr = document.getElementById("priceBreakdown");
+            curr.classList.toggle("active");
+        }
+        if(statCard.getAttribute("id") === "secondStat"){
+            let curr = document.getElementById("partsCompared");
+            curr.classList.toggle("active");
+        }
+        if(statCard.getAttribute("id") === "fourthStat"){
+            let curr = document.getElementById("tips");
+            curr.classList.toggle("active");
+        }
     })
 })
 
@@ -35,7 +46,6 @@ partCards.forEach((partCard) => {
     partCard.addEventListener("click", function () {
         let overlay = document.getElementById("overlay");
         overlay.style.display = "block";
-
     });
 })
 
