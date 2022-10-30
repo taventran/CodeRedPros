@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b46e1e2-d75c-4f0b-b575-b3ae4d202673" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/scraper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/CodeRedPros.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/CodeRedPros.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/CodeRedPros.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/CodeRedPros.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/homePageStyling.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/homePageStyling.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/presentationScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/presentationScreen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/presentationScreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/presentationScreen.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667126219525</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added parses">
+      <created>1667133316915</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667133316915</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
