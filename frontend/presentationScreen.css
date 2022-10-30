@@ -8,7 +8,6 @@ body {
     align-content: center;
 }
 
-
 #itemContainer{
     display: inline-grid;
     grid-template-columns: 1fr 1fr;
@@ -33,4 +32,15 @@ body {
     box-shadow: black 4px 4px;
 }
 
+.statCard{
+    width: 75%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+    box-shadow: black 2px 2px;
+}
+#priceValue, .price{
+    color: green;
+}
 

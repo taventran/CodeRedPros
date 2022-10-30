@@ -67,6 +67,7 @@ button and Checkbox */
     transition: 0.2s ease;
     background-color: rgba(5,196,107,0.8)
 }
+
 #submitForm a{
     font-family: inherit;
     font-size: 21px;
