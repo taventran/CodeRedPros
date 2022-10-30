@@ -18,7 +18,7 @@ class AllData(models.Model): # All data compiled here
 class CPU(models.Model):
     price = models.FloatField(blank=False)
     coreCount = models.FloatField(blank=True)
-    performanceBoostClock = models.FloatField(blank=True)
+    clockSpeed = models.FloatField(blank=True)
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name="CPU")
     name = models.TextField(blank=True, max_length=50)
     

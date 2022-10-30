@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from web import serializers
 from web import models
+import scraper
 
 # Create your views here.
 class CPUViewSet(viewsets.ModelViewSet):
