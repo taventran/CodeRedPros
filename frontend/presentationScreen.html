@@ -16,60 +16,67 @@
 
         <div id="itemContainer">
 
+            <div id="overlay" onclick="off()">
+                <div id="Title"></div>
+                <div id="Desc"></div>
+                <h5>(click me to dismiss)</h5>
+            </div>
+
             <div id="collection">
                 <div class="card">
                     <h3 class="card-title">CPU</h3>
-                    <h2 class="component-title">I9 etc</h2>
+                    <h2 class="component-title" id="cpuComp">I9 etc</h2>
                     <h3 class="price">$15000</h3>
                 </div>
                 <div class="card">
                     <h3 class="card-title">CPU Cooler</h3>
-                    <h2 class="component-title">I9 etc</h2>
+                    <h2 id="coolerComp" class="component-title">I9 etc</h2>
                     <h3 class="price">$15000</h3>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Video Card</h3>
-                    <h2 class="component-title">I9 etc</h2>
+                    <h2 id="gpuComp" class="component-title">I9 etc</h2>
                     <h3 class="price">$15000</h3>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Motherboard</h3>
-                    <h2 class="component-title">I9 etc</h2>
+                    <h2 id="moboComp" class="component-title">I9 etc</h2>
                     <h3 class="price">$15000</h3>
                 </div>
                 <div class="card">
                     <h3 class="card-title">RAM</h3>
-                    <h2 class="component-title">I9 etc</h2>
+                    <h2 id="ramComp" class="component-title">I9 etc</h2>
                     <h3 class="price">$15000</h3>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Storage</h3>
-                    <h2 class="component-title">I9 etc</h2>
+                    <h2 id="storageComp" class="component-title">I9 etc</h2>
                     <h3 class="price">$15000</h3>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Case</h3>
-                    <h2 class="component-title">I9 etc</h2>
+                    <h2 id="caseComp" class="component-title">I9 etc</h2>
                     <h3 class="price">$15000</h3>
                 </div>
                 <div class="card">
                     <h3 class="card-title">Power Supply</h3>
-                    <h2 class="component-title">I9 etc</h2>
+                    <h2 id="psuComp" class="component-title">I9 etc</h2>
                     <h3 class="price">$15000</h3>
                 </div>
             </div>
 
             <div id="stats">
                 <div class="statCard" id="firstStat">
-                    <h3 class="statTitle" id="priceBreakdown">About the Price...</h3>
-                    <div class="otherContent">
-                        <h4 id="priceValue">This price reflects our algorithm's calculations for what PC parts would fit best for you. It does this through taking in your inputs which specify your needs and wants in a computer, and recomending a computer that fufills all of these needs and wants.</h4>
+                    <h3 class="statTitle" >About the Price...</h3>
+                    <div class="otherContent" id="priceBreakdown">
+                        <h4 id="priceDesc">This price reflects our algorithm's calculations for what PC parts would fit best for you. It does this through taking in your inputs which specify your needs and wants in a computer, and recomending a computer that fufills all of these needs and wants.</h4>
+                        <h2 class="price">$15000</h2>
                     </div>
                 </div>
                 <div class="statCard" id="secondStat">
                     <h3 class="statTitle" id="compare_parts">Parts Compared...</h3>
                     <div class="otherContent" id="partsCompared">
-                        <h4>Parts are put here</h4>
+                        <h4>Insert Part Graphs</h4>
                     </div>
                 </div>
                 <div class="statCard" id="thirdStat">
@@ -83,7 +90,15 @@
                 <div class="statCard" id="fourthStat">
                     <h3 class="statTitle">Tips...</h3>
                     <div class="otherContent" id="tips">
-                        <h4>taking care of ur pc</h4>
+                        <h4>Owning a new PC may be daunting...</h4>
+                        <h2>We're here to help!</h2>
+                        <ul>
+                            <li><a href="https://www.pluralsight.com/blog/tutorials/top-10-to-dos-after-building-a-computer">Top 10 To-dos</a></li>
+                            <li><a href="https://www.gamespot.com/gallery/10-things-to-do-immediately-after-building-or-buyi/2900-1548/"> Another Top 10</a></li>
+                            <li><a href="https://www.velocitymicro.com/blog/the-10-commandments-of-computer-care/"></a></li>
+                        </ul>
+
+
                     </div>
                 </div>
             </div>

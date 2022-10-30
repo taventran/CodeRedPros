@@ -14,6 +14,7 @@ function sendDataInput() {
     let use;
     let price;
     let aesthetic;
+    console.log(allLIs);
     for(let i = 0; i < allLIs.length; i++){
         if(allLIs[i].classList.contains("active")){
            let id = allLIs[i].getAttribute("id");
@@ -22,33 +23,33 @@ function sendDataInput() {
                size = id.substring(id.length-1);
                console.log(size)
            }
-           if(allLIs[i].classList.contains("budget")){
+           if(allLIs[i].id.startsWith("budget")){
                 price = id.substring(id.length-1);
-               console.log(price)
+                console.log(price)
             }
             if(allLIs[i].classList.contains("usage")){
                 use = id.substring(id.length-1);
-
                 console.log(use)
             }
-            if (allLIs[i].classList.contains("aesthetic")) {
+            if (allLIs[i].classList.contains("isAesthetic")) {
                 aesthetic = id.substring(id.length-1);
+                console.log(aesthetic)
             }
         }
     }
-
+    console.log(price, aesthetic)
     return fetch(`http://127.0.0.1:8000/api/userdata/`, {
         method: 'POST',
         body: JSON.stringify({
-            "size": size,
-            "use": use,
-            "price": price,
-            "aesthetic": aesthetic,
+            "size": parseInt(size),
+            "use": parseInt(use),
+            "priceRange": parseInt(price),
+            "aesthetic": parseInt(aesthetic),
         }),
         headers: {
             'Content-Type': 'application/json',
         }
-    }).catch((error) => {
+    }).then((res) => JSON.stringify(res.json())).catch((error) => {
         console.error('Error:', error);
     });
     // let xhttp = new XMLHttpRequest();

@@ -1,5 +1,7 @@
 
 let statCards = document.querySelectorAll(".statCard")
+let partCards = document.querySelectorAll(".card")
+
 
 let anchorOne = document.getElementById("anchorOne")
 let anchorTwo = document.getElementById("anchorTwo")
@@ -20,12 +22,34 @@ statCards.forEach((statCard) => {
             document.querySelectorAll(".recIcons").forEach((recIcon) => {
                 recIcon.classList.toggle("activeImg");
             })
-
         }
-
-        console.log("hovered");
+        if(statCard.getAttribute("id") === "firstStat"){
+            let curr = document.getElementById("priceBreakdown");
+            curr.classList.toggle("active");
+        }
+        if(statCard.getAttribute("id") === "secondStat"){
+            let curr = document.getElementById("partsCompared");
+            curr.classList.toggle("active");
+        }
+        if(statCard.getAttribute("id") === "fourthStat"){
+            let curr = document.getElementById("tips");
+            curr.classList.toggle("active");
+        }
     })
 })
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+
+partCards.forEach((partCard) => {
+    partCard.addEventListener("click", function () {
+        let overlay = document.getElementById("overlay");
+        overlay.style.display = "block";
+    });
+})
+
+
 
 
 

@@ -73,10 +73,42 @@ body {
     display: block;
 }
 
+#overlay {
+    position: fixed;
+    display: none;
+    width: 25%;
+    height: 25%;
+    top: 35%;
+    left: 35%;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 2;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+    border: black 2px;
+    box-shadow: #949494 2px 2px;
+}
 
-.otherContent.active{
+#title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+
+.otherContent.active #softwareRecommended{
     display: flex;
     flex-direction: row;
+}
+.otherContent.active{
+    display: block;
+    text-align: center;
 }
 
 #priceValue, .price{
@@ -85,4 +117,8 @@ body {
 
 .header {
     color: #ffff;
+}
+
+#priceDesc {
+    color: black;
 }
