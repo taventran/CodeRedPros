@@ -5,7 +5,7 @@ from web import models
 class CPUSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CPU
-        fields = ('name', 'price', 'coreCount', 'performanceBoostClock',)
+        fields = ('name', 'price', 'coreCount', 'clockSpeed',)
 
 class CPUCoolerSerializer(serializers.ModelSerializer):
     class Meta:
