@@ -2,6 +2,9 @@ import pandas as pd
 import numpy as np
 import requests
 
+
+
+
 def getWeights(use, budget):
     weights = ()
 
@@ -64,12 +67,23 @@ def getWeights(use, budget):
     weights = (cpu, cpu_cooler, gpu, ram, storage, mobo, case, psu) * budget
     return weights
 
-
-def getCPU():
-    api_url = "https://127.0.0.1:8000/api/CPU/"
+def getCPU(budgetMax, budgetMin):
+    api_url = "http://127.0.0.1:8000/api/CPU/"
     response = requests.get(api_url)
-    df = pd.DataFrame(pd.read_json(response.json()))
-    print(df.head())
+    df = pd.DataFrame(response.json())
+    df = df.loc[(df['price'] <= budgetMax) & (df['price'] >= budgetMin)]
+    df = df.sort_values(["coreCount", "clockSpeed"], ascending = False)
+    return df[:10]
+
+def getCPUCooler(budgetMax, budgetMin):
+    api_url = "http://127.0.0.1:8000/api/CPUCooler/"
+    response = requests.get(api_url)
+    df = pd.DataFrame(response.json())
+    df = df.loc[(df['price'] <= budgetMax) & (df['price'] >= budgetMin)]
+    return df[:10]
 
 
-getCPU()
+
+
+
+print(getCPU(400, 100))
