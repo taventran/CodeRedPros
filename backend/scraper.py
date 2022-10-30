@@ -62,7 +62,18 @@ def parse_cpu():
              "price": (line2[4][line2[4].find(":")+1:-4]) })
 
             #print(line2)
-        #print(info)
+    return info
+
+def add_to_database_cpu():
+    info = parse_cpu()
+    for i in info:
+        model = models.CPU()
+        model.name = i.get("name")
+        model.coreCount = i.get("cores")
+        model.price = i.get("price")
+        model.clockSpeed = i.get("clockSpeed")
+        model.save()
+
 
 def parse_gpu():
     data = list(gpu_data['video-card'])
