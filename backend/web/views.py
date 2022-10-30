@@ -15,7 +15,7 @@ class UserDataViewSet(viewsets.ModelViewSet):
     @action(detail=True, methods=["POST"])
     def makeUserData(self, request, pk=None):
         if 'use' and 'aesthetic' and 'priceRange' and 'size' in request.data:
-            use = request['use']
+            use = int(request['use'])
             print(use)
             aesthetic = request['aesthetic']
             priceRange = request['priceRange']
