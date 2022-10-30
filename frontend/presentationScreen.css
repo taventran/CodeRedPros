@@ -52,10 +52,31 @@ body {
 .statCard:hover{
     transition: 0.2s ease;
     box-shadow: black 4px 4px;
+}
+
+#softwareRecommended{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
 
 }
 .statCard.isOpen{
     height: 200px;
+}
+
+.recIcons:not(.activeImg){
+    display: none;
+}
+.recIcons.activeImg{
+    transition: 0.4s ease;
+    display: block;
+}
+
+
+.otherContent.active{
+    display: flex;
+    flex-direction: row;
 }
 
 #priceValue, .price{

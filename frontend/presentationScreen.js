@@ -13,8 +13,17 @@ let useCase = 3
 statCards.forEach((statCard) => {
     statCard.addEventListener("click", () => {
         statCard.classList.toggle("isOpen");
+        if(statCard.getAttribute("id") === "thirdStat"){
+            setImages();
+            let curr = document.getElementById("softwareRecommended");
+            curr.classList.toggle("active");
+            document.querySelectorAll(".recIcons").forEach((recIcon) => {
+                recIcon.classList.toggle("activeImg");
+            })
+
+        }
+
         console.log("hovered");
-        setImages();
     })
 })
 
