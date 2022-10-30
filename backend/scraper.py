@@ -1,6 +1,6 @@
 from pcpartpicker import API
 from csv import reader
-from web import models
+#from web import models
 api = API()
 
 cpu_data = api.retrieve("cpu")
@@ -11,6 +11,8 @@ case_data = api.retrieve("case")
 cpu_cooler_data = api.retrieve("cpu-cooler")
 monitor_data = api.retrieve("monitor")
 internal_hard_drive_data = api.retrieve("internal-hard-drive")
+
+
 
 def parse_internal_hard_drive_data():
     data = list(internal_hard_drive_data['internal-hard-drive'])
