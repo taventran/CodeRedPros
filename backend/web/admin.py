@@ -10,3 +10,4 @@ admin.site.register(Storage)
 admin.site.register(PowerSupply)
 admin.site.register(Case)
 admin.site.register(AllData)
+

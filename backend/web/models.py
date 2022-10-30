@@ -1,7 +1,14 @@
 from django.db import models
+from numpy import maximum
 
 
 # Create your models here.
+
+class UserData(models.Model):
+    use = models.IntegerField(default = 1, blank = False)
+    aesthetic = models.BooleanField(default=False)
+    priceRange = models.FloatField(default=10, blank=False)
+    size = models.IntegerField(default = 1, blank = False)
 
 class OutputComputer(models.Model):
      # Make serializer for this. 
@@ -14,6 +21,15 @@ class AllData(models.Model): # All data compiled here
 
     def __str__(self):
         return "All Data"
+
+class Motherboard(models.Model):
+    price = models.FloatField(blank = False, default=10)
+    name = models.CharField(blank = False, default = "", max_length=50)
+    allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name="motherboard")
+    size = models.CharField(blank = False, default = "", max_length=50)
+
+    def __str__(self):
+        return self.name
 
 class CPU(models.Model):
     price = models.FloatField(blank=False)
