@@ -1,0 +1,27 @@
+Index: frontend/dataanalysis.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/dataanalysis.py b/frontend/dataanalysis.py
+new file mode 100644
+--- /dev/null	(date 1667080830193)
++++ b/frontend/dataanalysis.py	(date 1667080830193)
+@@ -0,0 +1,17 @@
++import pandas as pd
++import numpy as np
++import matplotlib.pyplot as plt
++import seaborn as sbp
++
++USEINTENSITY = 3
++TOTALUSECHOICES = 4
++
++BUDGETTIER = 3
++
++
++def getCPUS(intensitylevel, budgettier):
++    clockSpeedBucket = 1.7 / TOTALUSECHOICES
++    ProcessingSpeedBucket = intensitylevel * clockSpeedBucket + 3.0
++    coresSelected = intensitylevel * 2
++    # before this point it gets the estimated amount of cores and the clock speed of the CPU
++    CPUPRICERANGE = 400
