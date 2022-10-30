@@ -11,6 +11,9 @@ body {
     align-items: center;
     flex-direction: column;
 }
+::selection { background: transparent; }
+
+
 
 .dropdown {
     min-width: 15em;

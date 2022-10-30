@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b46e1e2-d75c-4f0b-b575-b3ae4d202673" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/scraper.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/scraper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/web/migrations/0018_userdata_image_url.py" beforeDir="false" />
@@ -24,6 +25,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_30_2022_7_34_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_30_2022_7_34_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_30_2022_7_34_AM__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_30_2022_7_34_AM__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/presentationScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/presentationScreen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/presentationScreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/presentationScreen.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/presentationScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/presentationScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,6 +251,14 @@
       <updated>1667137360221</updated>
     </task>
     <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00011" summary="added parses">
+      <created>1667138746736</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1667138746736</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,6 +278,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added gpu parse" />
     <MESSAGE value="added parses" />
+    <option name="LAST_COMMIT_MESSAGE" value="added parses" />
     <MESSAGE value="data anal" />
     <option name="LAST_COMMIT_MESSAGE" value="data anal" />
   </component>
