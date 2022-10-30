@@ -1,78 +1,101 @@
-
-    /* Styling the Body element i.e. Color,
-    Font, Alignment */
 body {
-    background-color: #656565;
-    font-family: Verdana, sans-serif;
-    text-align: center;
+    font-family: Helvetica, sans-serif;
+    background: #23242a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-/* Styling the Form (Color, Padding, Shadow) */
-form {
-    background-color: #fff;
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 30px 20px;
-    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
-}
-#form{
-    border-radius: 10px;
+.dropdown {
+    min-width: 15em;
+    position: relative;
+    margin: 2em;
 }
 
-/* Styling form-control Class */
-.form-control {
-    text-align: left;
-    margin-bottom: 30px;
+.dropdown * {
+    box-sizing: border-box;
 }
 
-/* Styling form-control Label */
-.form-control label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-/* Styling form-control input,
-select, textarea */
-.form-control input,
-.form-control select,
-.form-control textarea {
-    border: 1px solid #777;
-    border-radius: 2px;
-    font-family: inherit;
-    padding: 10px;
-    display: block;
-    width: 95%;
-}
-
-/* Styling form-control Radio
-button and Checkbox */
-.form-control input[type="radio"],
-.form-control input[type="checkbox"] {
-    display: inline-block;
-    width: auto;
-}
-
-/* Styling Button */
-#submitForm {
-    background-color: #05c46b;
-    border: 1px solid #777;
-    border-radius: 2px;
-    display: block;
-    width: 100%;
-    margin-top: 50px;
-    margin-bottom: 20px;
-}
-#submitForm:hover{
+.select {
+    background: #2a2f3b;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px #2a2f3b solid;
+    border-radius: 0.5em;
+    padding: 1em;
     cursor: pointer;
-    transition: 0.2s ease;
-    background-color: rgba(5,196,107,0.8)
+    transition: background 0.3s;
 }
-#submitForm a{
-    font-family: inherit;
-    font-size: 21px;
-    text-decoration: none;
-    margin: 10px;
-    color: white;
+
+.select-clicked {
+    border: 2px rgba(0, 255, 18, 0.4) solid;
+    box-shadow: 0 0 0.8em rgba(0, 255, 18, 0.8);
+}
+
+.select:hover {
+    background: #323741;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: 0.3s;
+}
+
+.caret.rotate {
+    transform: rotate(180deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: #323741;
+    border: 1px #363a43 solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: #9fa5b5;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.menu li {
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background: #2a2d35;
+}
+
+.active {
+    background: #23242a;
+}
+
+.menu-open {
+    display: block;
+    opacity: 1;
+}
+
+.flex-container {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 
