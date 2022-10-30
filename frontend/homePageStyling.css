@@ -1,11 +1,15 @@
+
+
+
 body {
-    font-family: Helvetica, sans-serif;
+    font-family: Monospaced, sans-serif;
     background: #23242a;
     min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .dropdown {
@@ -98,4 +102,25 @@ body {
     flex-wrap: wrap;
 }
 
+.welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #fff;
+}
 
+#welcPara{
+    font-family: Monospaced, sans-serif;
+    font-size: 20px;
+    color: #fff;
+}
+
+.new {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
