@@ -3,10 +3,11 @@ formSubmission = document.getElementById("submitForm");
 
 formSubmission.addEventListener("click", function () {
     location.href = "http://localhost:63342/CodeRedPros/frontend/presentationScreen.html"
+    getPartList("CPU");
 })
 
 
-function getStudySet(query) {
+function getPartList(query) {
     let xhttp = new XMLHttpRequest();
     xhttp.open("GET", `http://127.0.0.1:8000/api/${query}/?format=json`, false);
     xhttp.send();
