@@ -39,7 +39,7 @@ class PowerSupplySerializer(serializers.ModelSerializer):
 class CaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Case
-        fields = ('price', 'name', 'size')
+        fields = ('price', 'name', 'size', 'color')
 
 class AllDataSerializer(serializers.ModelSerializer):
     CPU = CPUSerializer(many=True, required=False)
