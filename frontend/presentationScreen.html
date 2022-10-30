@@ -3,55 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Results</title>
+    <link rel="stylesheet" href="presentationScreen.css">
 </head>
 <body>
     <div id="main">
+        <a href="CodeRedPros.html"><img style="width:500px; height:150px; object-fit: none;" id="logo" src="assets/pro.png" alt="#"></a>
+
         <h1>boy have we got something for you.</h1>
         <h2>Your build:</h2>
 
-        <div id="collection">
-            <div class="card">
-                <h3 class="card-title">CPU</h3>
-                <h2 class="component-title">I9 etc</h2>
-                <h3 class="price">$15000</h3>
+        <div id="itemContainer">
+
+            <div id="collection">
+                <div class="card">
+                    <h3 class="card-title">CPU</h3>
+                    <h2 class="component-title">I9 etc</h2>
+                    <h3 class="price">$15000</h3>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">CPU Cooler</h3>
+                    <h2 class="component-title">I9 etc</h2>
+                    <h3 class="price">$15000</h3>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Video Card</h3>
+                    <h2 class="component-title">I9 etc</h2>
+                    <h3 class="price">$15000</h3>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Motherboard</h3>
+                    <h2 class="component-title">I9 etc</h2>
+                    <h3 class="price">$15000</h3>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">RAM</h3>
+                    <h2 class="component-title">I9 etc</h2>
+                    <h3 class="price">$15000</h3>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Storage</h3>
+                    <h2 class="component-title">I9 etc</h2>
+                    <h3 class="price">$15000</h3>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Case</h3>
+                    <h2 class="component-title">I9 etc</h2>
+                    <h3 class="price">$15000</h3>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Power Supply</h3>
+                    <h2 class="component-title">I9 etc</h2>
+                    <h3 class="price">$15000</h3>
+                </div>
             </div>
-            <div class="card">
-                <h3 class="card-title">CPU</h3>
-                <h2 class="component-title">I9 etc</h2>
-                <h3 class="price">$15000</h3>
-            </div>
-            <div class="card">
-                <h3 class="card-title">CPU</h3>
-                <h2 class="component-title">I9 etc</h2>
-                <h3 class="price">$15000</h3>
-            </div>
-            <div class="card">
-                <h3 class="card-title">CPU</h3>
-                <h2 class="component-title">I9 etc</h2>
-                <h3 class="price">$15000</h3>
-            </div>
-            <div class="card">
-                <h3 class="card-title">CPU</h3>
-                <h2 class="component-title">I9 etc</h2>
-                <h3 class="price">$15000</h3>
-            </div>
-            <div class="card">
-                <h3 class="card-title">CPU</h3>
-                <h2 class="component-title">I9 etc</h2>
-                <h3 class="price">$15000</h3>
-            </div>
-            <div class="card">
-                <h3 class="card-title">CPU</h3>
-                <h2 class="component-title">I9 etc</h2>
-                <h3 class="price">$15000</h3>
-            </div>
-            <div class="card">
-                <h3 class="card-title">CPU</h3>
-                <h2 class="component-title">I9 etc</h2>
-                <h3 class="price">$15000</h3>
+
+            <div id="stats">
+                <div class="statCard">
+                    <h3 class="statTitle" id="priceBreakdown">About the Price...</h3>
+                    <div class="otherContent">
+                        <h4 id="priceValue">$15000</h4>
+                    </div>
+                </div>
+                <div class="statCard">
+                    <h3 class="statTitle" id="compare_parts">Parts Compared...</h3>
+                    <div class="otherContent" id="partsCompared">
+                        <h4>Parts are put here</h4>
+                    </div>
+                </div>
+                <div class="statCard">
+                    <h3 class="statTitle">Consider the Following...</h3>
+                    <div class="otherContent" id="softwareRecommended">
+                        <a id="anchorOne"><img id="imageOne" class="recIcons"></a>
+                        <a id="anchorTwo"><img id="imageTwo" class="recIcons"></a>
+                        <a id="anchorThree"><img id="imageThree" class="recIcons"></a>
+                    </div>
+                </div>
+                <div class="statCard">
+                    <h3 class="statTitle">Tips...</h3>
+                    <div class="otherContent" id="tips">
+                        <h4>taking care of ur pc</h4>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+    <script src="presentationScreen.js"></script>
 </body>
 </html>

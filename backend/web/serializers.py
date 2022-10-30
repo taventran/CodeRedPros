@@ -5,7 +5,7 @@ from web import models
 class CPUSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CPU
-        fields = ('name', 'price', 'coreCount', 'performanceCoreClock',)
+        fields = ('name', 'price', 'coreCount', 'clockSpeed',)
 
 class CPUCoolerSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,27 +15,27 @@ class CPUCoolerSerializer(serializers.ModelSerializer):
 class MemorySerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Memory
-        fields = ("name", "price")
+        fields = ("name", "price", "gigs")
 
 class StorageSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Storage
-        fields = ('ssd', 'hardDrives', 'price', 'name')
+        fields = ('ssd', 'price', 'name', "capacity")
 
 class GPUSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.GPU
-        fields = ('price', 'name')
+        fields = ('price', 'name', "memory", "coreClock")
     
 class PowerSupplySerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PowerSupply
-        fields = ('price', 'name')
+        fields = ('price', 'name', "watts", "effiency")
 
 class CaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Case
-        fields = ('price', 'name')
+        fields = ('price', 'name', 'size')
 
 class AllDataSerializer(serializers.ModelSerializer):
     CPU = CPUSerializer(many=True, required=False)
@@ -45,6 +45,7 @@ class AllDataSerializer(serializers.ModelSerializer):
     GPU = GPUSerializer(many = True, required = False)
     powerSupply = PowerSupplySerializer(many = True, required = False)
     case = CaseSerializer(many = True, required = False)
+
     class Meta:
         model = models.AllData
         fields = ('CPU', 'CPUCooler', 'memory', 'storage', 'GPU', 'powerSupply', 'case',)

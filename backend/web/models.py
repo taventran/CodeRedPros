@@ -18,7 +18,7 @@ class AllData(models.Model): # All data compiled here
 class CPU(models.Model):
     price = models.FloatField(blank=False)
     coreCount = models.FloatField(blank=True)
-    performanceCoreClock = models.FloatField(blank=True)
+    clockSpeed = models.FloatField(blank=True)
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name="CPU")
     name = models.TextField(blank=True, max_length=50)
     
@@ -33,40 +33,39 @@ class CPUCooler(models.Model):
     def __str__(self):
         return self.name
     
-
 class Memory(models.Model):
     price = models.FloatField()
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name="memory")
     name = models.TextField(blank=True, max_length=50)
-    
+    gigs = models.IntegerField(blank = False, default = 0)
+
     def __str__(self):
         return self.name   
     
 class Storage(models.Model):
     ssd = models.BooleanField(default = False)
-    hardDrives = models.BooleanField(default = False)
     price = models.FloatField(blank = False)
+    capacity = models.FloatField(blank = False, default=0)
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name='storage')
     name = models.TextField(blank=True, max_length=50)
     
     def __str__(self):
         return self.name   
     
-
-
-
 class GPU(models.Model):
     price = models.FloatField(blank = False)
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name='GPU')
     name = models.TextField(blank=True, max_length=50)
-    
+    coreClock = models.IntegerField(blank = True, default = 0)
+    memory = models.IntegerField(blank=True, default = 0)
     def __str__(self):
         return self.name  
 
 class Case(models.Model):
-    price = models.FloatField(blank = False)
+    price = models.FloatField(default = 0, blank = False)
+    size = models.CharField(default="unknown", blank=False, max_length=60)
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name='case')
-    name = models.TextField(blank=True, max_length=50)
+    name = models.TextField(blank= False , max_length=50)
     
     def __str__(self):
         return self.name  
@@ -75,9 +74,9 @@ class Case(models.Model):
 class PowerSupply(models.Model):
     price = models.FloatField(blank = False)
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name="powerSupply")
-    name = models.TextField(blank=True, max_length=50)
-    
+    name = models.TextField(blank=True, max_length=50,)
+    watts = models.IntegerField(blank=False, default=0)
+    effiency = models.CharField(max_length=50, blank=False, default="")
     def __str__(self):
         return self.name
     
-
