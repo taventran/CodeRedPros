@@ -39,8 +39,6 @@ def parse_cpu():
 
             #print(line2)
         #print(info)
-            
-
 
 def parse_gpu():
     data = list(gpu_data['video-card'])
@@ -65,7 +63,6 @@ def parse_gpu():
             memory = float(newList[i][3][newList[i][3].find('=') + 1:])
             newDict.append({"name": brand, "price": price, "clockSpeed": clockSpeed, "memory": memory})
     return newDict
-
 
 def parse_cpu_cooler():
     data = list(cpu_cooler_data['cpu-cooler'])
@@ -116,4 +113,31 @@ def parse_case_data():
 
     return newDict
 
-print(parse_case_data())
+def parse_memory_data():
+    data = list(memory_data['memory'])
+    newList = []
+    for i in range(len(data)):
+        temp = str(data[i])
+        newList.append(temp)
+        print(temp)
+
+    for i in range(len(newList)):
+        newList[i] = newList[i][newList[i].find('(') + 1:newList[i].rindex(')')]
+        newList[i] = list(newList[i].split(','))
+        for x in range(len(newList[i])):
+            newList[i][x] = newList[i][x][newList[i][x].find('=') + 2:-1]
+        print(newList[i])
+
+    newDict = []
+    for i in range(len(newList)):
+        if 'on' not in newList[i] and '0.0' != newList[i][-1]:
+            brand = newList[i][0] + " " + newList[i][1]
+            price = float(newList[i][-1][newList[i][-1].find(':') + 2:-4])
+            speed = newList[i][3][newList[i][3].find('=') + 1:]
+            memory = newList[i][2]
+            if memory == "DDR4" and price != 0.0:
+                newDict.append({"name": brand, "price": price, "speed": speed, "memory": memory})
+
+    return newDict
+
+print(parse_memory_data())
