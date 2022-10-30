@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from web import views
 from rest_framework import routers
+from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 router.register('userdata', views.UserDataViewSet)
@@ -18,4 +19,4 @@ router.register('case', views.CaseViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls))
-]
+] 
