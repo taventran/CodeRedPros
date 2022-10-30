@@ -1,10 +1,7 @@
 from pcpartpicker import API
 from csv import reader
-<<<<<<< HEAD
-#from web import models
-=======
-# from web import models
->>>>>>> c51997f38e336280dd0a4d99bf271823d11bfec4
+from web import models
+
 api = API()
 
 cpu_data = api.retrieve("cpu")
@@ -109,7 +106,17 @@ def parse_mobo_data():
                 newDict.append({"name": brand, "price": price, "size": size})
 
     return newDict
-print(parse_mobo_data())
+
+def add_to_database_mobo():
+    info = parse_mobo_data()
+    for i in info:
+        model = models.Motherboard()
+        model.price = i.get('price')
+        model.name = i.get('name')
+        model.size = i.get('size')
+        model.save()
+
+
 def parse_internal_hard_drive_data():
     data = list(internal_hard_drive_data['internal-hard-drive'])
     newList = []
