@@ -19,15 +19,15 @@ class UserDataViewSet(viewsets.ModelViewSet):
             priceRange = request['priceRange']
             size = request['size']
             serializer = serializers.UserDataSerializer
-            Data = models.UserData.objects.create(use=use, aesthetic=aesthetic, 
-            priceRange=priceRange, size=size)
+            Data = models.UserData.objects.create(use=int(use), aesthetic=int(aesthetic), 
+            priceRange=float(priceRange), size=int(size))
             response = {'message': 'New data', 'result':serializer.data}
             return Response(response, status.HTTP_200_OK)
         else:
             response = {'message': 'Missing info'}
             return Response(response, status=status.HTTP_400_BAD_REQUEST)
 
-            
+
 class MotherboardViewSet(viewsets.ModelViewSet):
     queryset = models.Motherboard.objects.all()
     serializer_class = serializers.MotherboardSerializer
