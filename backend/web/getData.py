@@ -4,6 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import requests
 import random
+import models
+import views
+
+print(models.UserData.lastUser())
 
 def getWeights(use, budget):
     weights = ()

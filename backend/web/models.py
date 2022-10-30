@@ -3,8 +3,6 @@ from django.db import models
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-import getData
-
 
 # Create your models here.
 
@@ -22,6 +20,8 @@ class UserData(models.Model):
     # image_url = models.ImageField(upload_to=upload_to, blank=True, null=True, default=val)
     # image_url2 = models.ImageField(upload_to=upload_to, blank=True, null=True, default=val2)
     # image_url3 = models.ImageField(upload_to=upload_to, blank=True, null=True, default=val3)  
+    def lastUser(self):
+        UserData.objects.get().last()
 
 class OutputComputer(models.Model):
     cpu = models.CharField(max_length=50, default="nothing")

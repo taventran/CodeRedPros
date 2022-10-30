@@ -5,13 +5,28 @@ from rest_framework.decorators import action
 from web import serializers
 from web import models
 from rest_framework.parsers import MultiPartParser, FormParser
-import scraper
 # Create your views here.
 
+def my_django_view(requests):
+    url = "http://127.0.0.1:8000/api/userdata/"
+    header = {
+    "Content-Type":"application/json",
+    }
+    
+    result = requests.get(url,headers=header)
+    if result.status_code == 200:
+        return result
+
 class UserDataViewSet(viewsets.ModelViewSet):
+
     queryset = models.UserData.objects.all()
     serializer_class = serializers.UserDataSerializer
     parser_classes = (MultiPartParser, FormParser)
+
+    @action(detail=True, methods=["GET"])
+    def lastUser(self, request, pk=None):
+        return models.UserData.objects.last()
+
     @action(detail=True, methods=["POST"])
     def makeUserData(self, request, pk=None):
         if 'use' and 'aesthetic' and 'priceRange' and 'size' in request.data:

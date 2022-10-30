@@ -1,6 +1,6 @@
+'''
 from pcpartpicker import API
 from csv import reader
-from web import models
 
 api = API()
 
@@ -79,14 +79,15 @@ def parse_memory_data():
 
     return newDict
 
-def add_to_table_memory():
-    info = parse_memory_data()
-    for i in info:
-        model = models.Memory()
-        model.name = i.get('name')
-        model.price = i.get('price')
-        model.gigs = i.get('gigs')
-        model.save()
+
+# def add_to_table_memory():
+#     info = parse_memory_data()
+#     for i in info:
+#         model = models.Memory()
+#         model.name = i.get('name')
+#         model.price = i.get('price')
+#         model.gigs = i.get('gigs')
+#         model.save()
 
 
 
@@ -341,3 +342,4 @@ def parse_memory_data():
     return newDict
 
 
+'''
