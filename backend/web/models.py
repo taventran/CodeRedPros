@@ -34,8 +34,6 @@ class CPUCooler(models.Model):
         return self.name
     
 
-
-
 class Memory(models.Model):
     price = models.FloatField()
     allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name="memory")
@@ -44,13 +42,11 @@ class Memory(models.Model):
     def __str__(self):
         return self.name   
     
-
-
 class Storage(models.Model):
     ssd = models.BooleanField(default = False)
     hardDrives = models.BooleanField(default = False)
     price = models.FloatField(blank = False)
-    allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE)
+    allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name='storage')
     name = models.TextField(blank=True, max_length=50)
     
     def __str__(self):
@@ -61,17 +57,24 @@ class Storage(models.Model):
 
 class GPU(models.Model):
     price = models.FloatField(blank = False)
-    allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE)
+    allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name='GPU')
     name = models.TextField(blank=True, max_length=50)
     
     def __str__(self):
         return self.name  
+
+class Case(models.Model):
+    price = models.FloatField(blank = False)
+    allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name='case')
+    name = models.TextField(blank=True, max_length=50)
     
+    def __str__(self):
+        return self.name  
 
 
 class PowerSupply(models.Model):
     price = models.FloatField(blank = False)
-    allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE)
+    allData = models.ForeignKey(AllData, default = AllData.DEFAULT_PK, on_delete=models.CASCADE, related_name="powerSupply")
     name = models.TextField(blank=True, max_length=50)
     
     def __str__(self):

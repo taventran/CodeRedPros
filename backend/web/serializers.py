@@ -1,4 +1,3 @@
-from django.forms import modelformset_factory
 from rest_framework import serializers
 from web import models
 
@@ -13,9 +12,39 @@ class CPUCoolerSerializer(serializers.ModelSerializer):
         model = models.CPUCooler
         fields = ("name", "price")
 
+class MemorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Memory
+        fields = ("name", "price")
+
+class StorageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Storage
+        fields = ('ssd', 'hardDrives', 'price', 'name')
+
+class GPUSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.GPU
+        fields = ('price', 'name')
+    
+class PowerSupplySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.PowerSupply
+        fields = ('price', 'name')
+
+class CaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Case
+        fields = ('price', 'name')
+
 class AllDataSerializer(serializers.ModelSerializer):
     CPU = CPUSerializer(many=True, required=False)
     CPUCooler = CPUCoolerSerializer(many=True, required=False)
+    memory = MemorySerializer(many = True, required = False)
+    storage = StorageSerializer(many = True, required = False)
+    GPU = GPUSerializer(many = True, required = False)
+    powerSupply = PowerSupplySerializer(many = True, required = False)
+    case = CaseSerializer(many = True, required = False)
     class Meta:
         model = models.AllData
-        fields = ('CPU', 'CPUCooler')
+        fields = ('CPU', 'CPUCooler', 'memory', 'storage', 'GPU', 'powerSupply', 'case',)
