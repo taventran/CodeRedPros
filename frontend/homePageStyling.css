@@ -124,3 +124,21 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+#submitForm{
+    background-color: #2a2f3b;
+    width: 15vw;
+    height: 5vh;
+    border-radius: 5px;
+    border: none;
+}
+#submitForm:hover{
+    background-color: #323741;
+    transition: 0.2s ease;
+    box-shadow: #23242a 2px 2px;
+}
+#submitForm a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}

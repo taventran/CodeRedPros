@@ -4,9 +4,34 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from web import serializers
 from web import models
-
+import scraper
 
 # Create your views here.
+
+class UserDataViewSet(viewsets.ModelViewSet):
+    queryset = models.UserData.objects.all()
+    serializer_class = serializers.UserDataSerializer
+    @action(detail=True, methods=["POST"])
+    def makeUserData(self, request, pk=None):
+        if 'use' and 'aesthetic' and 'priceRange' and 'size' in request.data:
+            use = request['use']
+            aesthetic = request['aesthetic']
+            priceRange = request['priceRange']
+            size = request['size']
+            serializer = serializers.UserDataSerializer
+            Data = models.UserData.objects.create(use=int(use), aesthetic=int(aesthetic), 
+            priceRange=float(priceRange), size=int(size))
+            response = {'message': 'New data', 'result':serializer.data}
+            return Response(response, status.HTTP_200_OK)
+        else:
+            response = {'message': 'Missing info'}
+            return Response(response, status=status.HTTP_400_BAD_REQUEST)
+
+
+class MotherboardViewSet(viewsets.ModelViewSet):
+    queryset = models.Motherboard.objects.all()
+    serializer_class = serializers.MotherboardSerializer
+
 class CPUViewSet(viewsets.ModelViewSet):
     queryset = models.CPU.objects.all()
     serializer_class = serializers.CPUSerializer
@@ -38,3 +63,4 @@ class CaseViewSet(viewsets.ModelViewSet):
 class AllDataViewSet(viewsets.ModelViewSet):
     queryset = models.AllData.objects.all()
     serializer_class = serializers.AllDataSerializer
+
