@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from web import serializers
 from web import models
-import scraper
 from rest_framework.parsers import MultiPartParser, FormParser
 
 # Create your views here.
@@ -23,6 +22,7 @@ class UserDataViewSet(viewsets.ModelViewSet):
             serializer = serializers.UserDataSerializer
             Data = models.UserData.objects.create(use=int(use), aesthetic=int(aesthetic), 
                 priceRange=float(priceRange), size=int(size))
+            Data.save()
             response = {'message': 'New data', 'result':serializer.data}
             return Response(response, status.HTTP_200_OK)
         else:

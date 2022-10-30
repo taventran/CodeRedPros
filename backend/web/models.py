@@ -26,9 +26,9 @@ def generate_graph():
 
 
 # Create your models here.
+
 def upload_to(instance, filename):
     return f'images/{filename}'
-
 
 class UserData(models.Model):
     use = models.IntegerField(default = 1, blank = False)
